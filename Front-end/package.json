@@ -1,0 +1,17 @@
+{
+  "name": "diplom",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-bootstrap": "2.5.0",
+    "angular-ui-router": "1.0.0-rc.1"
+  },
+  "devDependencies": {
+    "html-loader": "0.4.4",
+    "webpack": "2.2.0",
+    "webpack-dev-server": "2.2.0"
+  }
+}
