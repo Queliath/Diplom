@@ -4,3 +4,11 @@
     <p>Кол-во сотрудников: {{ $ctrl.project.employeeCount }}</p>
     <p>Проект менеджер: {{ $ctrl.project.projectManager.firstName }} {{ $ctrl.project.projectManager.lastName }}</p>
 </div>
+<h2>Список сотрудников</h2>
+<div class="well clearfix" ng-repeat="employee in $ctrl.employees">
+    <h3>{{ employee.firstName}} {{ employee.lastName }}</h3>
+    <p>Position: {{ employee.position }}</p>
+    <p>Birth date: {{ employee.birthDate }}</p>
+    <p>Experience: {{ employee.experience }} year(s)</p>
+    <p>Core skill: {{ employee.coreSkill }}</p>
+</div>
