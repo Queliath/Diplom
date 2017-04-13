@@ -1,7 +1,7 @@
 <h2>Список проектов</h2>
 
 <div class="well clearfix" ng-repeat="project in $ctrl.projects">
-    <h3>{{ project.name }}</h3>
+    <h3><a ui-sref="project({ projectId: project.id })">{{ project.name }}</a></h3>
     <p>С {{ project.startDate }} по {{ project.endDate }}</p>
     <p>Кол-во сотрудников: {{ project.employeeCount }}</p>
     <p>Проект менеджер: {{ project.projectManager.firstName }} {{ project.projectManager.lastName }}</p>
