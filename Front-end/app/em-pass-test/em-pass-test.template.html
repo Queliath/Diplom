@@ -1,0 +1,11 @@
+<div class="jumbotron">
+    <h3>Вопрос №{{ $ctrl.currentQuestionNumber }} из {{ $ctrl.questions.length }}</h3>
+    <p>{{ $ctrl.currentQuestion.content }}</p>
+    <p>Варианты ответа</p>
+    <ul>
+        <li ng-repeat="option in $ctrl.currentQuestion.options">
+            {{ option.content }}
+        </li>
+    </ul>
+    <ul uib-pagination total-items="$ctrl.questions.length" items-per-page="1" ng-model="$ctrl.currentQuestionNumber" ng-change="$ctrl.questionChanged()" force-ellipses="true" max-size="7" boundary-link-numbers="true" next-text="След" previous-text="Прев"></ul>
+</div>

@@ -10,6 +10,7 @@ import {emEmployeeComponent} from './em-employee/em-employee.component';
 import {emReportComponent} from './em-report/em-report.component';
 import {emTestListComponent} from './em-test-list/em-test-list.component';
 import {emTestComponent} from './em-test/em-test.component';
+import {emPassTestComponent} from './em-pass-test/em-pass-test.component'
 import {emQuestionComponent} from './em-question/em-question.component';
 
 angular.module("app", [uirouter, uibootstrap])
@@ -20,4 +21,5 @@ angular.module("app", [uirouter, uibootstrap])
     .component("emReport", emReportComponent)
     .component("emTestList", emTestListComponent)
     .component("emTest", emTestComponent)
+    .component("emPassTest", emPassTestComponent)
     .component("emQuestion", emQuestionComponent);
