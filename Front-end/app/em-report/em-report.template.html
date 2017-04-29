@@ -1,0 +1,10 @@
+<div class="jumbotron">
+    <h3>{{ $ctrl.report.date }}</h3>
+    <p>Кол-во пройденных тестов: {{ $ctrl.report.testCount }}</p>
+    <p>Средняя успешность прохождения: {{ $ctrl.report.averageSuccess }}%</p>
+</div>
+<h2>Пройденные тесты</h2>
+<div class="well clearfix" ng-repeat="test in $ctrl.report.tests">
+    <h3>{{ test.name }}</h3>
+    <p>Результат: {{ test.success }}%</p>
+</div>

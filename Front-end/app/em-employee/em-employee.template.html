@@ -1,0 +1,13 @@
+<div class="jumbotron">
+    <h3>{{ $ctrl.employee.firstName }} {{ $ctrl.employee.lastName }}</h3>
+    <p>Позиция: {{ $ctrl.employee.position }}</p>
+    <p>Дата рождения: {{  $ctrl.employee.birthDate }}</p>
+    <p>Опыт работы (в годах): {{ $ctrl.employee.experience }}</p>
+    <p>Ключевой навык: {{ $ctrl.employee.coreSkill }}</p>
+</div>
+<h2>Отчетность по результатам единого тестирования</h2>
+<div class="well clearfix" ng-repeat="report in $ctrl.reports">
+    <h3><a ui-sref="report({ employeeId: $ctrl.employeeId, reportDate: report.date })">{{ report.date }}</a></h3>
+    <p>Кол-во пройденных тестов: {{ report.testCount }}</p>
+    <p>Средняя успешность прохождения: {{ report.averageSuccess }}%</p>
+</div>

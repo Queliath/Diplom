@@ -6,6 +6,8 @@ import routing from './routing';
 
 import {emProjectListComponent} from './em-project-list/em-project-list.component';
 import {emProjectComponent} from './em-project/em-project.component';
+import {emEmployeeComponent} from './em-employee/em-employee.component';
+import {emReportComponent} from './em-report/em-report.component';
 import {emTestListComponent} from './em-test-list/em-test-list.component';
 import {emTestComponent} from './em-test/em-test.component';
 import {emQuestionComponent} from './em-question/em-question.component';
@@ -14,6 +16,8 @@ angular.module("app", [uirouter, uibootstrap])
     .config(routing)
     .component("emProjectList", emProjectListComponent)
     .component("emProject", emProjectComponent)
+    .component("emEmployee", emEmployeeComponent)
+    .component("emReport", emReportComponent)
     .component("emTestList", emTestListComponent)
     .component("emTest", emTestComponent)
     .component("emQuestion", emQuestionComponent);

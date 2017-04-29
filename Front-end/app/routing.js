@@ -13,6 +13,18 @@ export default function routing($stateProvider, $urlRouterProvider) {
         component: "emProject"
     };
 
+    var employeeState = {
+        name: "employee",
+        url: "/employee/{employeeId}",
+        component: "emEmployee"
+    };
+
+    var reportState = {
+        name: "report",
+        url: "/employee/{employeeId}/report/{reportDate}",
+        component: "emReport"
+    };
+
     var testsState = {
         name: "tests",
         url: "/tests",
@@ -33,6 +45,8 @@ export default function routing($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state(projectsState);
     $stateProvider.state(projectState);
+    $stateProvider.state(employeeState);
+    $stateProvider.state(reportState);
     $stateProvider.state(testsState);
     $stateProvider.state(testState);
     $stateProvider.state(questionState);
