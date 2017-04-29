@@ -5,6 +5,7 @@ import uibootstrap from 'angular-ui-bootstrap';
 import routing from './routing';
 
 import projectService from './common/service/project.service';
+import employeeService from './common/service/employee.service';
 
 import {emProjectListComponent} from './em-project-list/em-project-list.component';
 import {emProjectComponent} from './em-project/em-project.component';
@@ -18,6 +19,7 @@ import {emQuestionComponent} from './em-question/em-question.component';
 angular.module("app", [uirouter, uibootstrap])
     .config(routing)
     .service("projectService", projectService)
+    .service("employeeService", employeeService)
     .component("emProjectList", emProjectListComponent)
     .component("emProject", emProjectComponent)
     .component("emEmployee", emEmployeeComponent)

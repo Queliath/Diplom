@@ -9,4 +9,13 @@ export default function projectService($http) {
             return response.data;
         });
     };
+
+    service.getProjectById = function (id) {
+        return $http({
+            method: "GET",
+            url: EM_REST_SERVER_URI + "/projects/" + id
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 }

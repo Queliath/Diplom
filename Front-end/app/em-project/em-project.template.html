@@ -1,14 +1,12 @@
 <div class="jumbotron">
     <h3>{{ $ctrl.project.name }}</h3>
-    <p>С {{ $ctrl.project.startDate }} по {{ $ctrl.project.endDate }}</p>
     <p>Кол-во сотрудников: {{ $ctrl.project.employeeCount }}</p>
-    <p>Проект менеджер: {{ $ctrl.project.projectManager.firstName }} {{ $ctrl.project.projectManager.lastName }}</p>
 </div>
 <h2>Список сотрудников</h2>
 <div class="well clearfix" ng-repeat="employee in $ctrl.employees">
     <h3><a ui-sref="employee({ employeeId: employee.id })">{{ employee.firstName}} {{ employee.lastName }}</a></h3>
     <p>Позиция: {{ employee.position }}</p>
     <p>Дата рождения: {{ employee.birthDate }}</p>
-    <p>Опыт работы (в годах): {{ employee.experience }} year(s)</p>
+    <p>Опыт работы (в годах): {{ employee.experience }}</p>
     <p>Ключевой навык: {{ employee.coreSkill }}</p>
 </div>

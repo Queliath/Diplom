@@ -2,10 +2,7 @@ package by.bsuir.em.controller;
 
 import by.bsuir.em.dto.ProjectDto;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +14,25 @@ public class ProjectController {
 
     @GetMapping
     public ResponseEntity<List<ProjectDto>> getProjects() {
-        ProjectDto projectDto = new ProjectDto();
-        projectDto.setId(1L);
-        projectDto.setName("Leffler Group");
-        projectDto.setEmployeeCount(56);
-
         List<ProjectDto> projectDtoList = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
+            ProjectDto projectDto = new ProjectDto();
+            projectDto.setId((long) i + 1);
+            projectDto.setName("Leffler Group");
+            projectDto.setEmployeeCount(56);
             projectDtoList.add(projectDto);
         }
 
         return ResponseEntity.ok(projectDtoList);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProjectDto> getProjectById(@PathVariable Long id) {
+        ProjectDto projectDto = new ProjectDto();
+        projectDto.setId(id);
+        projectDto.setName("Leffler Group");
+        projectDto.setEmployeeCount(56);
+
+        return ResponseEntity.ok(projectDto);
     }
 }
