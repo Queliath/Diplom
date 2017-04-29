@@ -8,6 +8,8 @@ import projectService from './common/service/project.service';
 import employeeService from './common/service/employee.service';
 import reportService from './common/service/report.service';
 import testResultService from './common/service/testResult.service';
+import testService from './common/service/test.service';
+import questionService from './common/service/question.service';
 
 import {emProjectListComponent} from './em-project-list/em-project-list.component';
 import {emProjectComponent} from './em-project/em-project.component';
@@ -24,6 +26,8 @@ angular.module("app", [uirouter, uibootstrap])
     .service("employeeService", employeeService)
     .service("reportService", reportService)
     .service("testResultService", testResultService)
+    .service("testService", testService)
+    .service("questionService", questionService)
     .component("emProjectList", emProjectListComponent)
     .component("emProject", emProjectComponent)
     .component("emEmployee", emEmployeeComponent)

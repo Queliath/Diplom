@@ -2,8 +2,10 @@ package by.bsuir.em.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ReportDto {
+public class ReportDto implements Serializable {
     private static final long serialVersionUID = -1093073555735822044L;
 
     private Long testPeriodId;

@@ -7,9 +7,4 @@
 <div class="well clearfix" ng-repeat="question in $ctrl.questions">
     <h3><a ui-sref="question({ questionId: question.id })">Вопрос №{{ $index + 1 }}</a></h3>
     <p>{{ question.content }}</p>
-    <ul>
-        <li ng-repeat="option in question.options">
-            {{ option.content }} ({{ option.value }})
-        </li>
-    </ul>
 </div>
