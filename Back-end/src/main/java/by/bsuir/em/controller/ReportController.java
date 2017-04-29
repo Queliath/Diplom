@@ -26,4 +26,15 @@ public class ReportController {
 
         return ResponseEntity.ok(reportDtoList);
     }
+
+    @GetMapping("/{testPeriodId}")
+    public ResponseEntity<ReportDto> getReportByEmployeeIdAndTestPeriodId(
+            @PathVariable Long employeeId, @PathVariable Long testPeriodId) {
+        ReportDto reportDto = new ReportDto();
+        reportDto.setTestPeriodId(testPeriodId);
+        reportDto.setTestCount(10);
+        reportDto.setAverageSuccess(86.3F);
+
+        return ResponseEntity.ok(reportDto);
+    }
 }

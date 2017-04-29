@@ -21,7 +21,7 @@ export default function routing($stateProvider, $urlRouterProvider) {
 
     var reportState = {
         name: "report",
-        url: "/employee/{employeeId}/report/{reportDate}",
+        url: "/employee/{employeeId}/report/{testPeriodId}",
         component: "emReport"
     };
 
