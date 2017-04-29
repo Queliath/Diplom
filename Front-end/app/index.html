@@ -19,8 +19,12 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" ui-sref="welcome">Employee monitoring</a>
+                    <a class="navbar-brand">Employee monitoring</a>
                 </div>
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active"><a ui-sref="projects">Проекты</a></li>
+                    <li ui-sref-active="active"><a ui-sref="tests">Тесты</a></li>
+                </ul>
             </div>
         </nav>
     </header>

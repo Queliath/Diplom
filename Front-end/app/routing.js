@@ -1,18 +1,32 @@
 export default function routing($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/projects");
 
-    var welcomeState = {
-        name: "welcome",
-        url: "/",
+    var projectsState = {
+        name: "projects",
+        url: "/projects",
         component: "emProjectList",
     };
 
     var projectState = {
         name: "project",
-        url: "/project/{projectId}",
+        url: "/projects/{projectId}",
         component: "emProject"
     };
 
-    $stateProvider.state(welcomeState);
+    var testsState = {
+        name: "tests",
+        url: "/tests",
+        component: "emTestList"
+    };
+
+    var testState = {
+        name: "test",
+        url: "/test/{testId}",
+        component: "emTest"
+    };
+
+    $stateProvider.state(projectsState);
     $stateProvider.state(projectState);
+    $stateProvider.state(testsState);
+    $stateProvider.state(testState);
 }

@@ -1,0 +1,7 @@
+<h2>Список тестов</h2>
+
+<div class="well clearfix" ng-repeat="test in $ctrl.tests">
+    <h3><a ui-sref="test({ testId: test.id })">{{ test.name }}</a></h3>
+    <p>Кол-во вопросов: {{ test.questionsCount }}</p>
+    <p>Время на прохождение: {{ test.fixedTime }} мин.</p>
+</div>
