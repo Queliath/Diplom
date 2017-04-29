@@ -1,0 +1,15 @@
+<div class="jumbotron">
+    <h3>{{ $ctrl.test.name }}</h3>
+    <p>Кол-во вопросов: {{ $ctrl.test.questionsCount }}</p>
+    <p>Время на прохождение: {{ $ctrl.test.fixedTime }} мин.</p>
+</div>
+<h2>Список вопросов</h2>
+<div class="well clearfix" ng-repeat="question in $ctrl.questions">
+    <h3><a ui-sref="question({ questionId: question.id })">Вопрос №{{ $index + 1 }}</a></h3>
+    <p>{{ question.content }}</p>
+    <ul>
+        <li ng-repeat="option in question.options">
+            {{ option.content }} ({{ option.value }})
+        </li>
+    </ul>
+</div>

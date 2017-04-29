@@ -1,0 +1,9 @@
+<div class="jumbotron">
+    <p>{{ $ctrl.question.content }}</p>
+    <p>Варианты ответа</p>
+    <ul>
+        <li ng-repeat="option in $ctrl.question.options">
+            {{ option.content }} ({{ option.value }})
+        </li>
+    </ul>
+</div>

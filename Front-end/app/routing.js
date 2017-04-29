@@ -25,8 +25,15 @@ export default function routing($stateProvider, $urlRouterProvider) {
         component: "emTest"
     };
 
+    var questionState = {
+        name: "question",
+        url: "/question/{questionId}",
+        component: "emQuestion"
+    };
+
     $stateProvider.state(projectsState);
     $stateProvider.state(projectState);
     $stateProvider.state(testsState);
     $stateProvider.state(testState);
+    $stateProvider.state(questionState);
 }
