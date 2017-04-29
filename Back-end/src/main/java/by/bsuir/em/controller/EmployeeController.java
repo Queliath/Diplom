@@ -31,4 +31,18 @@ public class EmployeeController {
 
         return ResponseEntity.ok(employeeDtoList);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id) {
+        EmployeeDto employeeDto = new EmployeeDto();
+        employeeDto.setId(id);
+        employeeDto.setFirstName("Doris");
+        employeeDto.setLastName("Evans");
+        employeeDto.setBirthDate(LocalDate.now());
+        employeeDto.setPosition("Senior Software Engineer");
+        employeeDto.setExperience(5);
+        employeeDto.setCoreSkill("Java");
+
+        return ResponseEntity.ok(employeeDto);
+    }
 }
