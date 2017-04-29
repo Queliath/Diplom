@@ -9,4 +9,13 @@ export default function questionService($http) {
             return response.data;
         });
     };
+
+    service.getQuestionById = function (id) {
+        return $http({
+            method: "GET",
+            url: EM_REST_SERVER_URI + "/tests/0/questions/" + id
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 }

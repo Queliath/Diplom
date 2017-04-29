@@ -2,7 +2,7 @@
     <p>{{ $ctrl.question.content }}</p>
     <p>Варианты ответа</p>
     <ul>
-        <li ng-repeat="option in $ctrl.question.options">
+        <li ng-repeat="option in $ctrl.options">
             {{ option.content }} ({{ option.value }})
         </li>
     </ul>

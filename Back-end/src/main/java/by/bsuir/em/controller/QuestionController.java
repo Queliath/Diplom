@@ -25,4 +25,13 @@ public class QuestionController {
 
         return ResponseEntity.ok(questionDtoList);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<QuestionDto> getQuestionById(@PathVariable Long id) {
+        QuestionDto questionDto = new QuestionDto();
+        questionDto.setId(id);
+        questionDto.setContent("Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.");
+
+        return ResponseEntity.ok(questionDto);
+    }
 }

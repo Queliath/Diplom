@@ -10,6 +10,7 @@ import reportService from './common/service/report.service';
 import testResultService from './common/service/testResult.service';
 import testService from './common/service/test.service';
 import questionService from './common/service/question.service';
+import answerOptionService from './common/service/answerOptionService';
 
 import {emProjectListComponent} from './em-project-list/em-project-list.component';
 import {emProjectComponent} from './em-project/em-project.component';
@@ -28,6 +29,7 @@ angular.module("app", [uirouter, uibootstrap])
     .service("testResultService", testResultService)
     .service("testService", testService)
     .service("questionService", questionService)
+    .service("answerOptionService", answerOptionService)
     .component("emProjectList", emProjectListComponent)
     .component("emProject", emProjectComponent)
     .component("emEmployee", emEmployeeComponent)
