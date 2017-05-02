@@ -1,36 +1,35 @@
 package by.bsuir.em.service.impl;
 
+import by.bsuir.em.dao.ReportDao;
 import by.bsuir.em.dto.ReportDto;
+import by.bsuir.em.dto.converter.impl.ReportDtoConverter;
+import by.bsuir.em.entity.Report;
 import by.bsuir.em.service.ReportService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class ReportServiceImpl implements ReportService {
+    @Autowired
+    private ReportDao reportDao;
+    @Autowired
+    private ReportDtoConverter reportDtoConverter;
+
     @Override
+    @Transactional(readOnly = true)
     public List<ReportDto> getReportsByEmployeeId(Long employeeId) {
-        List<ReportDto> reportDtoList = new ArrayList<>(6);
-        for (int i = 0; i < 6; i++) {
-            ReportDto reportDto = new ReportDto();
-            reportDto.setTestPeriodId((long) i + 1);
-            reportDto.setTestCount(10);
-            reportDto.setAverageSuccess(86.3F);
-
-            reportDtoList.add(reportDto);
-        }
-
-        return reportDtoList;
+        List<Report> reportList = reportDao.getReportsByEmployeeId(employeeId);
+        return reportDtoConverter.getDtoList(reportList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ReportDto getReportByEmployeeIdAndTestPeriodId(Long employeeId, Long testPeriodId) {
-        ReportDto reportDto = new ReportDto();
-        reportDto.setTestPeriodId(testPeriodId);
-        reportDto.setTestCount(10);
-        reportDto.setAverageSuccess(86.3F);
-
-        return reportDto;
+        Report report = reportDao.getReportByEmployeeIdAndTestPeriodId(employeeId, testPeriodId);
+        return reportDtoConverter.getDto(report);
     }
 }

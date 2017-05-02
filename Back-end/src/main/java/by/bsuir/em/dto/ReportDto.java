@@ -9,7 +9,7 @@ public class ReportDto implements Serializable {
     private static final long serialVersionUID = -1093073555735822044L;
 
     private Long testPeriodId;
-    private Integer testCount;
+    private Long testCount;
     private Float averageSuccess;
 
     public Long getTestPeriodId() {
@@ -20,11 +20,11 @@ public class ReportDto implements Serializable {
         this.testPeriodId = testPeriodId;
     }
 
-    public Integer getTestCount() {
+    public Long getTestCount() {
         return testCount;
     }
 
-    public void setTestCount(Integer testCount) {
+    public void setTestCount(Long testCount) {
         this.testCount = testCount;
     }
 
