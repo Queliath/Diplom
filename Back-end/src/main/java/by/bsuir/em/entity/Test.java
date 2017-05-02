@@ -24,6 +24,17 @@ public class Test {
     @OneToMany(mappedBy = "testResultPk.test")
     private Set<TestResult> testResults;
 
+    @Transient
+    private Long questionsCount;
+
+    public Test() {
+    }
+
+    public Test(Long id, Long questionsCount) {
+        this.id = id;
+        this.questionsCount = questionsCount;
+    }
+
     public Long getId() {
         return id;
     }
@@ -46,6 +57,14 @@ public class Test {
 
     public void setFixedTime(Integer fixedTime) {
         this.fixedTime = fixedTime;
+    }
+
+    public Long getQuestionsCount() {
+        return questionsCount;
+    }
+
+    public void setQuestionsCount(Long questionsCount) {
+        this.questionsCount = questionsCount;
     }
 
     @Override
