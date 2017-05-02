@@ -15,6 +15,10 @@ public class Question {
     @Column(name = "content")
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "test_id")
+    private Test test;
+
     @OneToMany(mappedBy = "question")
     private Set<AnswerOption> options;
 
@@ -32,6 +36,14 @@ public class Question {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
     }
 
     @Override

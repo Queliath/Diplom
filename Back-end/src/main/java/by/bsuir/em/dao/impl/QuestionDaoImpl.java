@@ -6,20 +6,22 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
 public class QuestionDaoImpl implements QuestionDao {
     @PersistenceContext
-    protected EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
     public List<Question> getQuestionsByTestId(Long testId) {
-        return null;
+        TypedQuery<Question> query = entityManager.createQuery("select q from Question q where q.test.id = :testId", Question.class);
+        return query.setParameter("testId", testId).getResultList();
     }
 
     @Override
     public Question getQuestionById(Long id) {
-        return null;
+        return entityManager.find(Question.class, id);
     }
 }
