@@ -7,12 +7,12 @@ import by.bsuir.em.entity.Employee;
 import by.bsuir.em.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeDao employeeDao;
@@ -20,12 +20,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeDtoConverter employeeDtoConverter;
 
     @Override
+    @Transactional(readOnly = true)
     public List<EmployeeDto> getEmployeesByProjectId(Long projectId) {
         List<Employee> employeeList = employeeDao.getEmployeesByProjectId(projectId);
         return employeeDtoConverter.getDtoList(employeeList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public EmployeeDto getEmployeeById(Long id) {
         Employee employee = employeeDao.getEmployeeById(id);
         return employeeDtoConverter.getDto(employee);

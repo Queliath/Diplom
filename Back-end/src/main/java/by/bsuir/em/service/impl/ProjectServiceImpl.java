@@ -1,35 +1,35 @@
 package by.bsuir.em.service.impl;
 
+import by.bsuir.em.dao.ProjectDao;
 import by.bsuir.em.dto.ProjectDto;
+import by.bsuir.em.dto.converter.impl.ProjectDtoConverter;
+import by.bsuir.em.entity.Project;
 import by.bsuir.em.service.ProjectService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class ProjectServiceImpl implements ProjectService {
-    @Override
-    public List<ProjectDto> getProjects() {
-        List<ProjectDto> projectDtoList = new ArrayList<>(10);
-        for (int i = 0; i < 10; i++) {
-            ProjectDto projectDto = new ProjectDto();
-            projectDto.setId((long) i + 1);
-            projectDto.setName("Leffler Group");
-            projectDto.setEmployeeCount(56);
-            projectDtoList.add(projectDto);
-        }
+    @Autowired
+    private ProjectDao projectDao;
+    @Autowired
+    private ProjectDtoConverter projectDtoConverter;
 
-        return projectDtoList;
+    @Override
+    @Transactional(readOnly = true)
+    public List<ProjectDto> getProjects() {
+        List<Project> projectList = projectDao.getProjects();
+        return projectDtoConverter.getDtoList(projectList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ProjectDto getProjectById(Long id) {
-        ProjectDto projectDto = new ProjectDto();
-        projectDto.setId(id);
-        projectDto.setName("Leffler Group");
-        projectDto.setEmployeeCount(56);
-
-        return projectDto;
+        Project project = projectDao.getProjectById(id);
+        return projectDtoConverter.getDto(project);
     }
 }
