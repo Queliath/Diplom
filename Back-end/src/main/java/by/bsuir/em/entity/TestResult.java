@@ -8,7 +8,7 @@ import java.util.Objects;
 @Table(name = "em_test_results")
 public class TestResult {
     @EmbeddedId
-    private TestResultPk testResultPk = new TestResultPk();
+    private TestResultPk testResultPk;
 
     @Column(name = "success")
     private Float success;
@@ -38,37 +38,40 @@ public class TestResult {
 
     @Embeddable
     public class TestResultPk implements Serializable {
-        @Column(name = "employee_id")
-        private Long employeeId;
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "employee_id")
+        private Employee employee;
 
-        @Column(name = "test_id")
-        private Long testId;
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "test_id")
+        private Test test;
 
-        @Column(name = "test_period_id")
-        private Long testPeriodId;
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "test_period_id")
+        private TestPeriod testPeriod;
 
-        public Long getEmployeeId() {
-            return employeeId;
+        public Employee getEmployee() {
+            return employee;
         }
 
-        public void setEmployeeId(Long employeeId) {
-            this.employeeId = employeeId;
+        public void setEmployee(Employee employee) {
+            this.employee = employee;
         }
 
-        public Long getTestId() {
-            return testId;
+        public Test getTest() {
+            return test;
         }
 
-        public void setTestId(Long testId) {
-            this.testId = testId;
+        public void setTest(Test test) {
+            this.test = test;
         }
 
-        public Long getTestPeriodId() {
-            return testPeriodId;
+        public TestPeriod getTestPeriod() {
+            return testPeriod;
         }
 
-        public void setTestPeriodId(Long testPeriodId) {
-            this.testPeriodId = testPeriodId;
+        public void setTestPeriod(TestPeriod testPeriod) {
+            this.testPeriod = testPeriod;
         }
 
         @Override
@@ -78,17 +81,16 @@ public class TestResult {
 
             TestResultPk that = (TestResultPk) o;
 
-            if (employeeId != null ? !employeeId.equals(that.employeeId) : that.employeeId != null) return false;
-            if (testId != null ? !testId.equals(that.testId) : that.testId != null) return false;
-            return !(testPeriodId != null ? !testPeriodId.equals(that.testPeriodId) : that.testPeriodId != null);
-
+            if (employee != null ? !employee.equals(that.employee) : that.employee != null) return false;
+            if (test != null ? !test.equals(that.test) : that.test != null) return false;
+            return !(testPeriod != null ? !testPeriod.equals(that.testPeriod) : that.testPeriod != null);
         }
 
         @Override
         public int hashCode() {
-            int result = employeeId != null ? employeeId.hashCode() : 0;
-            result = 31 * result + (testId != null ? testId.hashCode() : 0);
-            result = 31 * result + (testPeriodId != null ? testPeriodId.hashCode() : 0);
+            int result = employee != null ? employee.hashCode() : 0;
+            result = 31 * result + (test != null ? test.hashCode() : 0);
+            result = 31 * result + (testPeriod != null ? testPeriod.hashCode() : 0);
             return result;
         }
     }

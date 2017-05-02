@@ -6,20 +6,24 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
 public class TestResultDaoImpl implements TestResultDao {
     @PersistenceContext
-    protected EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
     public List<TestResult> getTestResultsByEmployeeId(Long employeeId) {
-        return null;
+        TypedQuery<TestResult> query = entityManager.createQuery("select tr from TestResult tr where tr.testResultPk.employee.id = :employeeId", TestResult.class);
+        return query.setParameter("employeeId", employeeId).getResultList();
     }
 
     @Override
     public List<TestResult> getTestResultsByEmployeeIdAndTestPeriodId(Long employeeId, Long testPeriodId) {
-        return null;
+        TypedQuery<TestResult> query = entityManager.createQuery("select tr from TestResult tr where tr.testResultPk.employee.id = :employeeId and " +
+                "tr.testResultPk.testPeriod.id = :testPeriodId", TestResult.class);
+        return query.setParameter("employeeId", employeeId).setParameter("testPeriodId", testPeriodId).getResultList();
     }
 }

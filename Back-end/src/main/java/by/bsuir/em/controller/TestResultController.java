@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping("/employees/{employeeId}/reports/{testPeriodId}/results")
-public class TestResultsController {
+public class TestResultController {
     @Autowired
     private TestResultService testResultService;
 

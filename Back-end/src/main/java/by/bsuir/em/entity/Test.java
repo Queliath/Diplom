@@ -21,6 +21,9 @@ public class Test {
     @OneToMany(mappedBy = "test")
     private Set<Question> questions;
 
+    @OneToMany(mappedBy = "testResultPk.test")
+    private Set<TestResult> testResults;
+
     public Long getId() {
         return id;
     }

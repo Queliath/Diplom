@@ -3,6 +3,7 @@ package by.bsuir.em.entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "em_test_periods")
@@ -17,6 +18,9 @@ public class TestPeriod {
 
     @Column(name = "end_date")
     private LocalDate endDate;
+
+    @OneToMany(mappedBy = "testResultPk.testPeriod")
+    private Set<TestResult> testResults;
 
     public Long getId() {
         return id;

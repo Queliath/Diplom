@@ -3,6 +3,7 @@ package by.bsuir.em.entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "em_employees")
@@ -30,6 +31,9 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
+
+    @OneToMany(mappedBy = "testResultPk.employee")
+    private Set<TestResult> testResults;
 
     public Long getId() {
         return id;
