@@ -27,6 +27,10 @@ public class Employee {
     @Column(name = "core_skill")
     private String coreSkill;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id")
+    private Project project;
+
     public Long getId() {
         return id;
     }
@@ -73,6 +77,14 @@ public class Employee {
 
     public void setCoreSkill(String coreSkill) {
         this.coreSkill = coreSkill;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     @Override

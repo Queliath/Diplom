@@ -2,6 +2,7 @@ package by.bsuir.em.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "em_projects")
@@ -13,6 +14,9 @@ public class Project {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "project")
+    private Set<Employee> employees;
 
     public Long getId() {
         return id;
