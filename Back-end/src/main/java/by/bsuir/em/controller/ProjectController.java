@@ -1,38 +1,29 @@
 package by.bsuir.em.controller;
 
 import by.bsuir.em.dto.ProjectDto;
+import by.bsuir.em.service.ProjectService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/projects")
 public class ProjectController {
+    @Autowired
+    ProjectService projectService;
 
     @GetMapping
     public ResponseEntity<List<ProjectDto>> getProjects() {
-        List<ProjectDto> projectDtoList = new ArrayList<>(10);
-        for (int i = 0; i < 10; i++) {
-            ProjectDto projectDto = new ProjectDto();
-            projectDto.setId((long) i + 1);
-            projectDto.setName("Leffler Group");
-            projectDto.setEmployeeCount(56);
-            projectDtoList.add(projectDto);
-        }
-
+        List<ProjectDto> projectDtoList = projectService.getProjects();
         return ResponseEntity.ok(projectDtoList);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProjectDto> getProjectById(@PathVariable Long id) {
-        ProjectDto projectDto = new ProjectDto();
-        projectDto.setId(id);
-        projectDto.setName("Leffler Group");
-        projectDto.setEmployeeCount(56);
-
+        ProjectDto projectDto = projectService.getProjectById(id);
         return ResponseEntity.ok(projectDto);
     }
 }
