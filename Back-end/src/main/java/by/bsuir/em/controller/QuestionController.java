@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/tests/{testId}/questions")
 public class QuestionController {
     @Autowired
-    QuestionService questionService;
+    private QuestionService questionService;
 
     @GetMapping
     public ResponseEntity<List<QuestionDto>> getQuestionsByTestId(@PathVariable Long testId) {

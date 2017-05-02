@@ -2,6 +2,7 @@ package by.bsuir.em.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "em_questions")
@@ -13,6 +14,9 @@ public class Question {
 
     @Column(name = "content")
     private String content;
+
+    @OneToMany(mappedBy = "question")
+    private Set<AnswerOption> options;
 
     public Long getId() {
         return id;

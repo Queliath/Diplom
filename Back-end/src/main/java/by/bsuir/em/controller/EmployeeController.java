@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/employees")
 public class EmployeeController {
     @Autowired
-    EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     @GetMapping(params = {"projectId"})
     public ResponseEntity<List<EmployeeDto>> getEmployeesByProjectId(@RequestParam Long projectId) {

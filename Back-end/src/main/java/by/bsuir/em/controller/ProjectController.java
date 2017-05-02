@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/projects")
 public class ProjectController {
     @Autowired
-    ProjectService projectService;
+    private ProjectService projectService;
 
     @GetMapping
     public ResponseEntity<List<ProjectDto>> getProjects() {

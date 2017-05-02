@@ -17,6 +17,10 @@ public class AnswerOption {
     @Column(name = "value")
     private Integer value;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id")
+    private Question question;
+
     public Long getId() {
         return id;
     }
@@ -39,6 +43,14 @@ public class AnswerOption {
 
     public void setValue(Integer value) {
         this.value = value;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 
     @Override

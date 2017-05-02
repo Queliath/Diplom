@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/employees/{employeeId}/reports/{testPeriodId}/results")
 public class TestResultsController {
     @Autowired
-    TestResultService testResultService;
+    private TestResultService testResultService;
 
     @GetMapping
     public ResponseEntity<List<TestResultDto>> getTestResultsByEmployeeIdAndTestPeriodId(

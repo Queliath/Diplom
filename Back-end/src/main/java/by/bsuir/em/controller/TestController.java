@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/tests")
 public class TestController {
     @Autowired
-    TestService testService;
+    private TestService testService;
 
     @GetMapping
     public ResponseEntity<List<TestDto>> getTests() {

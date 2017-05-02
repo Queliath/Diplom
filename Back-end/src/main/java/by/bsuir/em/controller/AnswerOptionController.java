@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/questions/{questionId}/options")
 public class AnswerOptionController {
     @Autowired
-    AnswerOptionService answerOptionService;
+    private AnswerOptionService answerOptionService;
 
     @GetMapping
     public ResponseEntity<List<AnswerOptionDto>> getAnswerOptionsByQuestionId(@PathVariable Long questionId) {

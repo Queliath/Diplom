@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/employees/{employeeId}/reports")
 public class ReportController {
     @Autowired
-    ReportService reportService;
+    private ReportService reportService;
 
     @GetMapping
     public ResponseEntity<List<ReportDto>> getReportsByEmployeeId(@PathVariable Long employeeId) {
