@@ -13,6 +13,9 @@ public class TestResultDtoConverter implements DtoConverter<TestResult, TestResu
     @Override
     public TestResultDto getDto(TestResult entity) {
         TestResultDto testResultDto = new TestResultDto();
+        testResultDto.setTestId(entity.getTestResultPk().getTest().getId());
+        testResultDto.setTestName(entity.getTestResultPk().getTest().getName());
+        testResultDto.setFixedTime(entity.getTestResultPk().getTest().getFixedTime());
         testResultDto.setSuccess(entity.getSuccess());
 
         return testResultDto;

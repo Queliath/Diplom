@@ -8,8 +8,18 @@ import java.io.Serializable;
 public class TestResultDto implements Serializable {
     private static final long serialVersionUID = -1093073555735822044L;
 
+    private Long testId;
     private String testName;
+    private Integer fixedTime;
     private Float success;
+
+    public Long getTestId() {
+        return testId;
+    }
+
+    public void setTestId(Long testId) {
+        this.testId = testId;
+    }
 
     public String getTestName() {
         return testName;
@@ -17,6 +27,14 @@ public class TestResultDto implements Serializable {
 
     public void setTestName(String testName) {
         this.testName = testName;
+    }
+
+    public Integer getFixedTime() {
+        return fixedTime;
+    }
+
+    public void setFixedTime(Integer fixedTime) {
+        this.fixedTime = fixedTime;
     }
 
     public Float getSuccess() {

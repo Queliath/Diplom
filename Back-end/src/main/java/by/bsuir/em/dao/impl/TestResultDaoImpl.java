@@ -15,14 +15,8 @@ public class TestResultDaoImpl implements TestResultDao {
     private EntityManager entityManager;
 
     @Override
-    public List<TestResult> getTestResultsByEmployeeId(Long employeeId) {
-        TypedQuery<TestResult> query = entityManager.createQuery("select tr from TestResult tr where tr.testResultPk.employee.id = :employeeId", TestResult.class);
-        return query.setParameter("employeeId", employeeId).getResultList();
-    }
-
-    @Override
     public List<TestResult> getTestResultsByEmployeeIdAndTestPeriodId(Long employeeId, Long testPeriodId) {
-        TypedQuery<TestResult> query = entityManager.createQuery("select tr from TestResult tr where tr.testResultPk.employee.id = :employeeId and " +
+        TypedQuery<TestResult> query = entityManager.createQuery("select tr from TestResult tr join fetch tr.testResultPk.test where tr.testResultPk.employee.id = :employeeId and " +
                 "tr.testResultPk.testPeriod.id = :testPeriodId", TestResult.class);
         return query.setParameter("employeeId", employeeId).setParameter("testPeriodId", testPeriodId).getResultList();
     }

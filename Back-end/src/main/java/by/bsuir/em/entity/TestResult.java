@@ -13,6 +13,14 @@ public class TestResult {
     @Column(name = "success")
     private Float success;
 
+    public TestResultPk getTestResultPk() {
+        return testResultPk;
+    }
+
+    public void setTestResultPk(TestResultPk testResultPk) {
+        this.testResultPk = testResultPk;
+    }
+
     public Float getSuccess() {
         return success;
     }
@@ -37,7 +45,7 @@ public class TestResult {
     }
 
     @Embeddable
-    public class TestResultPk implements Serializable {
+    public static class TestResultPk implements Serializable {
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "employee_id")
         private Employee employee;
