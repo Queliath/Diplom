@@ -16,6 +16,7 @@ public class TestDtoConverter implements DtoConverter<Test, TestDto> {
         testDto.setId(entity.getId());
         testDto.setName(entity.getName());
         testDto.setFixedTime(entity.getFixedTime());
+        testDto.setQuestionsCount(entity.getQuestionsCount());
 
         return testDto;
     }

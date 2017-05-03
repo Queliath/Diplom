@@ -23,7 +23,7 @@ public class ReportDaoImpl implements ReportDao {
 
         List<Report> reportList = new ArrayList<>(resultSet.size());
         for (Object[] row : resultSet) {
-            reportList.add(new Report((Long) row[0], (Long) row[1], (Float) row[2]));
+            reportList.add(new Report((Long) row[0], (Long) row[1], (Double) row[2]));
         }
 
         return reportList;
@@ -39,6 +39,6 @@ public class ReportDaoImpl implements ReportDao {
             return null;
         }
         Object[] row = resultSet.get(0);
-        return new Report((Long) row[0], (Float) row[1]);
+        return new Report((Long) row[0], (Double) row[1]);
     }
 }

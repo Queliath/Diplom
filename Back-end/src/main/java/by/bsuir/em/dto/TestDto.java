@@ -7,7 +7,7 @@ public class TestDto extends Dto<Long> {
     private static final long serialVersionUID = -1093073555735822044L;
 
     private String name;
-    private Integer questionsCount;
+    private Long questionsCount;
     private Integer fixedTime;
 
     public String getName() {
@@ -18,11 +18,11 @@ public class TestDto extends Dto<Long> {
         this.name = name;
     }
 
-    public Integer getQuestionsCount() {
+    public Long getQuestionsCount() {
         return questionsCount;
     }
 
-    public void setQuestionsCount(Integer questionsCount) {
+    public void setQuestionsCount(Long questionsCount) {
         this.questionsCount = questionsCount;
     }
 

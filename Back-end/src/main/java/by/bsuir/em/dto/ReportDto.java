@@ -10,7 +10,7 @@ public class ReportDto implements Serializable {
 
     private Long testPeriodId;
     private Long testCount;
-    private Float averageSuccess;
+    private Double averageSuccess;
 
     public Long getTestPeriodId() {
         return testPeriodId;
@@ -28,11 +28,11 @@ public class ReportDto implements Serializable {
         this.testCount = testCount;
     }
 
-    public Float getAverageSuccess() {
+    public Double getAverageSuccess() {
         return averageSuccess;
     }
 
-    public void setAverageSuccess(Float averageSuccess) {
+    public void setAverageSuccess(Double averageSuccess) {
         this.averageSuccess = averageSuccess;
     }
 

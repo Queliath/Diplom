@@ -3,17 +3,17 @@ package by.bsuir.em.entity;
 public class Report {
     private Long testPeriodId;
     private Long testCount;
-    private Float averageSuccess;
+    private Double averageSuccess;
 
     public Report() {
     }
 
-    public Report(Long testCount, Float averageSuccess) {
+    public Report(Long testCount, Double averageSuccess) {
         this.testCount = testCount;
         this.averageSuccess = averageSuccess;
     }
 
-    public Report(Long testPeriodId, Long testCount, Float averageSuccess) {
+    public Report(Long testPeriodId, Long testCount, Double averageSuccess) {
         this.testPeriodId = testPeriodId;
         this.testCount = testCount;
         this.averageSuccess = averageSuccess;
@@ -35,11 +35,11 @@ public class Report {
         this.testCount = testCount;
     }
 
-    public Float getAverageSuccess() {
+    public Double getAverageSuccess() {
         return averageSuccess;
     }
 
-    public void setAverageSuccess(Float averageSuccess) {
+    public void setAverageSuccess(Double averageSuccess) {
         this.averageSuccess = averageSuccess;
     }
 }
