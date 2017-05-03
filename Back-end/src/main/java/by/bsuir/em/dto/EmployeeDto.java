@@ -12,7 +12,6 @@ public class EmployeeDto extends Dto<Long> {
     private String lastName;
     private LocalDate birthDate;
     private String position;
-    private Integer experience;
     private String coreSkill;
 
     public String getFirstName() {
@@ -47,14 +46,6 @@ public class EmployeeDto extends Dto<Long> {
         this.position = position;
     }
 
-    public Integer getExperience() {
-        return experience;
-    }
-
-    public void setExperience(Integer experience) {
-        this.experience = experience;
-    }
-
     public String getCoreSkill() {
         return coreSkill;
     }
@@ -74,7 +65,6 @@ public class EmployeeDto extends Dto<Long> {
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
         if (position != null ? !position.equals(that.position) : that.position != null) return false;
-        if (experience != null ? !experience.equals(that.experience) : that.experience != null) return false;
         return !(coreSkill != null ? !coreSkill.equals(that.coreSkill) : that.coreSkill != null);
 
     }
@@ -85,7 +75,6 @@ public class EmployeeDto extends Dto<Long> {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + (position != null ? position.hashCode() : 0);
-        result = 31 * result + (experience != null ? experience.hashCode() : 0);
         result = 31 * result + (coreSkill != null ? coreSkill.hashCode() : 0);
         return result;
     }
@@ -97,7 +86,6 @@ public class EmployeeDto extends Dto<Long> {
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
                 ", position='" + position + '\'' +
-                ", experience=" + experience +
                 ", coreSkill='" + coreSkill + '\'' +
                 '}';
     }
