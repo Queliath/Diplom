@@ -14,6 +14,8 @@ public class ReportDtoConverter implements DtoConverter<Report, ReportDto> {
     public ReportDto getDto(Report entity) {
         ReportDto reportDto = new ReportDto();
         reportDto.setTestPeriodId(entity.getTestPeriodId());
+        reportDto.setTestPeriodStartDate(entity.getTestPeriodStartDate());
+        reportDto.setTestPeriodEndDate(entity.getTestPeriodEndDate());
         reportDto.setTestCount(entity.getTestCount());
         reportDto.setAverageSuccess(entity.getAverageSuccess());
 

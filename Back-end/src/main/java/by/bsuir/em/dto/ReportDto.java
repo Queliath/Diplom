@@ -3,12 +3,15 @@ package by.bsuir.em.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReportDto implements Serializable {
     private static final long serialVersionUID = -1093073555735822044L;
 
     private Long testPeriodId;
+    private LocalDate testPeriodStartDate;
+    private LocalDate testPeriodEndDate;
     private Long testCount;
     private Double averageSuccess;
 
@@ -18,6 +21,22 @@ public class ReportDto implements Serializable {
 
     public void setTestPeriodId(Long testPeriodId) {
         this.testPeriodId = testPeriodId;
+    }
+
+    public LocalDate getTestPeriodStartDate() {
+        return testPeriodStartDate;
+    }
+
+    public void setTestPeriodStartDate(LocalDate testPeriodStartDate) {
+        this.testPeriodStartDate = testPeriodStartDate;
+    }
+
+    public LocalDate getTestPeriodEndDate() {
+        return testPeriodEndDate;
+    }
+
+    public void setTestPeriodEndDate(LocalDate testPeriodEndDate) {
+        this.testPeriodEndDate = testPeriodEndDate;
     }
 
     public Long getTestCount() {
