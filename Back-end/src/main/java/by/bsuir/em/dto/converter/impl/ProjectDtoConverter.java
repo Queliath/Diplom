@@ -15,6 +15,7 @@ public class ProjectDtoConverter implements DtoConverter<Project, ProjectDto> {
         ProjectDto projectDto = new ProjectDto();
         projectDto.setId(entity.getId());
         projectDto.setName(entity.getName());
+        projectDto.setEmployeeCount(entity.getEmployeesCount());
 
         return projectDto;
     }

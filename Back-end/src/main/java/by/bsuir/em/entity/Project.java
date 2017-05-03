@@ -18,6 +18,17 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Employee> employees;
 
+    @Transient
+    private Long employeesCount;
+
+    public Project() {
+    }
+
+    public Project(Long id, Long employeesCount) {
+        this.id = id;
+        this.employeesCount = employeesCount;
+    }
+
     public Long getId() {
         return id;
     }
@@ -32,6 +43,14 @@ public class Project {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getEmployeesCount() {
+        return employeesCount;
+    }
+
+    public void setEmployeesCount(Long employeesCount) {
+        this.employeesCount = employeesCount;
     }
 
     @Override

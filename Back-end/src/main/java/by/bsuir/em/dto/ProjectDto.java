@@ -7,7 +7,7 @@ public class ProjectDto extends Dto<Long> {
     private static final long serialVersionUID = -1093073555735822044L;
 
     private String name;
-    private Integer employeeCount;
+    private Long employeeCount;
 
     public String getName() {
         return name;
@@ -17,11 +17,11 @@ public class ProjectDto extends Dto<Long> {
         this.name = name;
     }
 
-    public Integer getEmployeeCount() {
+    public Long getEmployeeCount() {
         return employeeCount;
     }
 
-    public void setEmployeeCount(Integer employeeCount) {
+    public void setEmployeeCount(Long employeeCount) {
         this.employeeCount = employeeCount;
     }
 
