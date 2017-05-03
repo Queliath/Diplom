@@ -13,6 +13,9 @@ public class TestResultDto implements Serializable {
     private Integer fixedTime;
     private Float success;
 
+    private Long employeeId;
+    private Long testPeriodId;
+
     public Long getTestId() {
         return testId;
     }
@@ -43,6 +46,22 @@ public class TestResultDto implements Serializable {
 
     public void setSuccess(Float success) {
         this.success = success;
+    }
+
+    public Long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public Long getTestPeriodId() {
+        return testPeriodId;
+    }
+
+    public void setTestPeriodId(Long testPeriodId) {
+        this.testPeriodId = testPeriodId;
     }
 
     @Override

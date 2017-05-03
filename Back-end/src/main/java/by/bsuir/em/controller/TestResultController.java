@@ -21,4 +21,13 @@ public class TestResultController {
         List<TestResultDto> testResultDtoList = testResultService.getTestResultsByEmployeeIdAndTestPeriodId(employeeId, testPeriodId);
         return ResponseEntity.ok(testResultDtoList);
     }
+
+    @PostMapping
+    public ResponseEntity<TestResultDto> addTestResult(@PathVariable Long employeeId, @PathVariable Long testPeriodId, @RequestBody TestResultDto testResultDto) {
+        testResultDto.setEmployeeId(employeeId);
+        testResultDto.setTestPeriodId(testPeriodId);
+        TestResultDto addedTestResult = testResultService.addTestResult(testResultDto);
+
+        return ResponseEntity.ok(addedTestResult);
+    }
 }

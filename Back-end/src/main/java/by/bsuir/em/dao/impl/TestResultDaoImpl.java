@@ -20,4 +20,10 @@ public class TestResultDaoImpl implements TestResultDao {
                 "tr.testResultPk.testPeriod.id = :testPeriodId", TestResult.class);
         return query.setParameter("employeeId", employeeId).setParameter("testPeriodId", testPeriodId).getResultList();
     }
+
+    @Override
+    public TestResult addTestResult(TestResult testResult) {
+        entityManager.persist(testResult);
+        return testResult;
+    }
 }

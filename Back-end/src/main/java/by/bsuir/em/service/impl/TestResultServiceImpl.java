@@ -26,4 +26,11 @@ public class TestResultServiceImpl implements TestResultService {
         List<TestResult> testResultList = testResultDao.getTestResultsByEmployeeIdAndTestPeriodId(employeeId, testPeriodId);
         return testResultDtoConverter.getDtoList(testResultList);
     }
+
+    @Override
+    public TestResultDto addTestResult(TestResultDto testResultDto) {
+        TestResult testResult = testResultDtoConverter.getEntity(testResultDto);
+        TestResult addedTestResult = testResultDao.addTestResult(testResult);
+        return testResultDtoConverter.getDto(addedTestResult);
+    }
 }
