@@ -24,6 +24,9 @@ public class Test {
     @OneToMany(mappedBy = "testResultPk.test")
     private Set<TestResult> testResults;
 
+    @OneToMany(mappedBy = "testTaskPk.test")
+    private Set<TestTask> testTasks;
+
     @Transient
     private Long questionsCount;
 

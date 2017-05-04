@@ -22,6 +22,9 @@ public class TestPeriod {
     @OneToMany(mappedBy = "testResultPk.testPeriod")
     private Set<TestResult> testResults;
 
+    @OneToMany(mappedBy = "testTaskPk.testPeriod")
+    private Set<TestTask> testTasks;
+
     public Long getId() {
         return id;
     }

@@ -35,6 +35,9 @@ public class Employee {
     @OneToMany(mappedBy = "testResultPk.employee")
     private Set<TestResult> testResults;
 
+    @OneToMany(mappedBy = "testTaskPk.employee")
+    private Set<TestTask> testTasks;
+
     public Long getId() {
         return id;
     }
