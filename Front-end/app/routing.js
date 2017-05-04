@@ -55,6 +55,12 @@ export default function routing($stateProvider, $urlRouterProvider) {
         component: "emQuestion"
     };
 
+    var testTasksState = {
+        name: "testTasks",
+        url: "/employee/{employeeId}/tasks",
+        component: "emTestTaskList"
+    };
+
     $stateProvider.state(loginState);
     $stateProvider.state(projectsState);
     $stateProvider.state(projectState);
@@ -64,4 +70,5 @@ export default function routing($stateProvider, $urlRouterProvider) {
     $stateProvider.state(testState);
     $stateProvider.state(passTestState);
     $stateProvider.state(questionState);
+    $stateProvider.state(testTasksState);
 }

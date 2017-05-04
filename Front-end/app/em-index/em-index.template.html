@@ -7,8 +7,9 @@
                     <a class="navbar-brand">Employee monitoring</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li ui-sref-active="active"><a ui-sref="projects">Проекты</a></li>
-                    <li ui-sref-active="active"><a ui-sref="tests">Тесты</a></li>
+                    <li ng-if="$ctrl.root.sessionEmployeeId" ui-sref-active="active"><a ui-sref="projects">Проекты</a></li>
+                    <li ng-if="$ctrl.root.sessionRole == 'Admin'" ui-sref-active="active"><a ui-sref="tests">Тесты</a></li>
+                    <li ng-if="$ctrl.root.sessionEmployeeId" ui-sref-active="active"><a ui-sref="testTasks({ employeeId: $ctrl.root.sessionEmployeeId })">Задания</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ui-sref-active="active" ng-if="!$ctrl.root.sessionEmployeeId"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
