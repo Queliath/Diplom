@@ -1,6 +1,12 @@
 export default function routing($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/projects");
 
+    var loginState = {
+        name: "login",
+        url: "/login",
+        component: "emLogin"
+    };
+
     var projectsState = {
         name: "projects",
         url: "/projects",
@@ -49,6 +55,7 @@ export default function routing($stateProvider, $urlRouterProvider) {
         component: "emQuestion"
     };
 
+    $stateProvider.state(loginState);
     $stateProvider.state(projectsState);
     $stateProvider.state(projectState);
     $stateProvider.state(employeeState);

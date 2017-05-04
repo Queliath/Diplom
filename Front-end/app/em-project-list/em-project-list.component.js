@@ -3,7 +3,11 @@ export var emProjectListComponent = {
     controller : emProjectListComponentController
 };
 
-function emProjectListComponentController(projectService) {
+function emProjectListComponentController(projectService, $state, $rootScope) {
+    if (!$rootScope.sessionEmployeeId) {
+        $state.go("login");
+    }
+
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
