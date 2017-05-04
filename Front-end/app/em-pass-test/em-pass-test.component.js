@@ -3,7 +3,7 @@ export var emPassTestComponent = {
     controller: emPassTestComponentController
 };
 
-function emPassTestComponentController(testService, questionService, answerOptionService, $stateParams) {
+function emPassTestComponentController(testService, questionService, answerOptionService, testResultService, $stateParams, $state) {
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
@@ -14,14 +14,31 @@ function emPassTestComponentController(testService, questionService, answerOptio
         questionService.getQuestionsByTestId($ctrl.testId).then(function (questions) {
             $ctrl.questions = questions;
             $ctrl.currentQuestionNumber = 1;
-            $ctrl.questionChanged();
+            loadQuestion();
         });
+        $ctrl.answers = {};
     };
 
-    $ctrl.questionChanged = function () {
+    $ctrl.optionSelected = function () {
+        $ctrl.answers[$ctrl.currentQuestion.id] = $ctrl.selectedOption;
+        if ($ctrl.currentQuestionNumber == $ctrl.test.questionsCount) {
+            testCompleted();
+        } else {
+            $ctrl.currentQuestionNumber++;
+            loadQuestion();
+        }
+    };
+
+    function testCompleted() {
+        testResultService.sendTestAnswers(1, 1, $ctrl.testId, $ctrl.answers).then(function (testResult) {
+            $state.go("tests");
+        });
+    }
+
+    function loadQuestion() {
         $ctrl.currentQuestion = $ctrl.questions[$ctrl.currentQuestionNumber - 1];
         answerOptionService.getAnswerOptionsByQuestionId($ctrl.currentQuestion.id).then(function (options) {
             $ctrl.currentOptions = options;
         });
-    };
+    }
 }

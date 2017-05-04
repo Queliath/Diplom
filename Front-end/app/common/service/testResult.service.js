@@ -9,4 +9,17 @@ export default function testResultService($http) {
             return response.data;
         });
     };
+
+    service.sendTestAnswers = function (employeeId, testPeriodId, testId, answers) {
+        return $http({
+            method: "POST",
+            url: EM_REST_SERVER_URI + "/employees/" + employeeId + "/reports/" + testPeriodId + "/results",
+            data: {
+                testId: testId,
+                answers: answers
+            }
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 }

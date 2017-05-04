@@ -29,6 +29,9 @@ public class TestResultServiceImpl implements TestResultService {
 
     @Override
     public TestResultDto addTestResult(TestResultDto testResultDto) {
+        Double testSuccess = testResultDao.getSuccessByAnswers(testResultDto.getAnswers());
+        testResultDto.setSuccess(testSuccess);
+
         TestResult testResult = testResultDtoConverter.getEntity(testResultDto);
         TestResult addedTestResult = testResultDao.addTestResult(testResult);
         return testResultDtoConverter.getDto(addedTestResult);

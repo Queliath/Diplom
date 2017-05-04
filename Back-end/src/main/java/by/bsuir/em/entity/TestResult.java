@@ -11,7 +11,7 @@ public class TestResult {
     private TestResultPk testResultPk;
 
     @Column(name = "success")
-    private Float success;
+    private Double success;
 
     public TestResultPk getTestResultPk() {
         return testResultPk;
@@ -21,11 +21,11 @@ public class TestResult {
         this.testResultPk = testResultPk;
     }
 
-    public Float getSuccess() {
+    public Double getSuccess() {
         return success;
     }
 
-    public void setSuccess(Float success) {
+    public void setSuccess(Double success) {
         this.success = success;
     }
 
