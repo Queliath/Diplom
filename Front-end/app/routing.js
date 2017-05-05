@@ -45,7 +45,7 @@ export default function routing($stateProvider, $urlRouterProvider) {
 
     var passTestState = {
         name: "passTest",
-        url: "/test/{testId}/pass",
+        url: "/employee/{employeeId}/task/{testPeriodId}/{testId}",
         component: "emPassTest"
     };
 

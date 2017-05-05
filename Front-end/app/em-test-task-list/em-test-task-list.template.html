@@ -1,8 +1,8 @@
 <h2>Тесты к прохождению</h2>
 <div class="well clearfix" ng-repeat="testTask in $ctrl.testTasks">
     <h3>{{ testTask.testName }}</h3>
-    <p>Время: {{ testTask.fixedTime }} (мин.)</p>
+    <p>Время: {{ testTask.fixedTime }} мин.</p>
     <div class="buttons-block">
-        <a ui-sref="passTest({ testId: test.id })" class="btn btn-sm btn-primary">Пройти</a>
+        <a ui-sref="passTest({ employeeId: $ctrl.employeeId, testPeriodId: testTask.testPeriodId, testId: testTask.testId })" class="btn btn-sm btn-primary">Пройти</a>
     </div>
 </div>

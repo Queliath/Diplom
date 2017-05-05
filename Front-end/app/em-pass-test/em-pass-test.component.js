@@ -7,6 +7,8 @@ function emPassTestComponentController(testService, questionService, answerOptio
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
+        $ctrl.employeeId = $stateParams.employeeId;
+        $ctrl.testPeriodId = $stateParams.testPeriodId;
         $ctrl.testId = $stateParams.testId;
         testService.getTestById($ctrl.testId).then(function (test) {
             $ctrl.test = test;
@@ -30,7 +32,7 @@ function emPassTestComponentController(testService, questionService, answerOptio
     };
 
     function testCompleted() {
-        testResultService.sendTestAnswers(1, 1, $ctrl.testId, $ctrl.answers).then(function (testResult) {
+        testResultService.sendTestAnswers($ctrl.employeeId, $ctrl.testPeriodId, $ctrl.testId, $ctrl.answers).then(function (testResult) {
             $state.go("tests");
         });
     }
