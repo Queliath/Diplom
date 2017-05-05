@@ -23,7 +23,7 @@ public class ReportDaoImpl implements ReportDao {
     public List<Report> getReportsByEmployeeId(Long employeeId) {
         Query query = entityManager.createNativeQuery("select tps.id, tps.start_date, tps.end_date, trs.test_count, trs.average_success from " +
                 "(select tr.test_period_id, count(tr.test_id) as test_count, avg(tr.success) as average_success from em_test_results tr where tr.employee_id = ? group by tr.test_period_id) trs " +
-                "join (select tp.id, tp.start_date, tp.end_date from em_test_periods tp) tps on trs.test_period_id = tps.id");
+                "join (select tp.id, tp.start_date, tp.end_date from em_test_periods tp) tps on trs.test_period_id = tps.id order by tps.id desc");
         List resultSet = query.setParameter(1, employeeId).getResultList();
 
         List<Report> reportList = new ArrayList<>(resultSet.size());

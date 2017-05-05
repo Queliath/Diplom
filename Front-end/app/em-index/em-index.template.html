@@ -9,6 +9,7 @@
                 <ul class="nav navbar-nav">
                     <li ng-if="$ctrl.root.sessionEmployeeId" ui-sref-active="active"><a ui-sref="projects">Проекты</a></li>
                     <li ng-if="$ctrl.root.sessionRole == 'Admin'" ui-sref-active="active"><a ui-sref="tests">Тесты</a></li>
+                    <li ng-if="$ctrl.root.sessionEmployeeId" ui-sref-active="active"><a ui-sref="employee({ employeeId: $ctrl.root.sessionEmployeeId })">Моя страница</a></li>
                     <li ng-if="$ctrl.root.sessionEmployeeId" ui-sref-active="active"><a ui-sref="testTasks({ employeeId: $ctrl.root.sessionEmployeeId })">Задания</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

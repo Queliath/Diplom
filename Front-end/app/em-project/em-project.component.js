@@ -3,10 +3,11 @@ export var emProjectComponent = {
     controller: emProjectComponentController
 };
 
-function emProjectComponentController(projectService, employeeService, $stateParams) {
+function emProjectComponentController($rootScope, projectService, employeeService, $stateParams) {
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
+        $ctrl.root = $rootScope;
         $ctrl.projectId = $stateParams.projectId;
         projectService.getProjectById($ctrl.projectId).then(function (project) {
             $ctrl.project = project;

@@ -3,10 +3,11 @@ export var emTestTaskListComponent = {
     controller: emTestTaskListComponentController
 };
 
-function emTestTaskListComponentController(testTaskService, $stateParams) {
+function emTestTaskListComponentController($rootScope, testTaskService, $stateParams) {
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
+        $ctrl.root = $rootScope;
         $ctrl.employeeId = $stateParams.employeeId;
         testTaskService.getTestTasksByEmployeeId($ctrl.employeeId).then(function (testTasks) {
             $ctrl.testTasks = testTasks;

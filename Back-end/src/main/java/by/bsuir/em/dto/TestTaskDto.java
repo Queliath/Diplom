@@ -11,6 +11,8 @@ public class TestTaskDto implements Serializable {
     private Integer fixedTime;
     private Long testPeriodId;
 
+    private Long employeeId;
+
     public Long getTestId() {
         return testId;
     }
@@ -41,6 +43,14 @@ public class TestTaskDto implements Serializable {
 
     public void setTestPeriodId(Long testPeriodId) {
         this.testPeriodId = testPeriodId;
+    }
+
+    public Long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
     }
 
     @Override

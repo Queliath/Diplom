@@ -3,7 +3,7 @@ export var emIndexComponent = {
     controller: emIndexComponentController
 };
 
-function emIndexComponentController($rootScope, $cookies) {
+function emIndexComponentController($rootScope, $cookies, $state) {
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
@@ -18,5 +18,7 @@ function emIndexComponentController($rootScope, $cookies) {
         $rootScope.sessionRole = undefined;
         $cookies.put("sessionEmployeeId", undefined);
         $cookies.put("sessionRole", undefined);
+
+        $state.go("login");
     };
 }

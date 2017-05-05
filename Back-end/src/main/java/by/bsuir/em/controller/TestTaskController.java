@@ -20,4 +20,11 @@ public class TestTaskController {
         List<TestTaskDto> testTaskDtoList = testTaskService.getTestTasksByEmployeeId(employeeId);
         return ResponseEntity.ok(testTaskDtoList);
     }
+
+    @PostMapping
+    public ResponseEntity<TestTaskDto> addTestTask(@PathVariable Long employeeId, @RequestBody TestTaskDto testTaskDto) {
+        testTaskDto.setEmployeeId(employeeId);
+        TestTaskDto addedTestTask = testTaskService.addTestTask(testTaskDto);
+        return ResponseEntity.ok(addedTestTask);
+    }
 }

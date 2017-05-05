@@ -8,4 +8,7 @@
     <p>Позиция: {{ employee.position }}</p>
     <p>Дата рождения: {{ employee.birthDate }}</p>
     <p>Ключевой навык: {{ employee.coreSkill }}</p>
+    <div class="buttons-block">
+        <a ng-if="$ctrl.root.sessionRole == 'Admin'" ui-sref="testTasks({ employeeId: employee.id })" class="btn btn-sm btn-primary">Управление заданиями</a>
+    </div>
 </div>

@@ -21,6 +21,12 @@ public class TestTaskDaoImpl implements TestTaskDao {
     }
 
     @Override
+    public TestTask addTestTask(TestTask testTask) {
+        entityManager.persist(testTask);
+        return testTask;
+    }
+
+    @Override
     public void deleteTestTaskByPk(TestTask.TestTaskPk pk) {
         TestTask testTask = entityManager.find(TestTask.class, pk);
         entityManager.remove(testTask);

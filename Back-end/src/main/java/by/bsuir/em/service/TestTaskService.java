@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TestTaskService {
     List<TestTaskDto> getTestTasksByEmployeeId(Long employeeId);
+    TestTaskDto addTestTask(TestTaskDto testTaskDto);
 }
