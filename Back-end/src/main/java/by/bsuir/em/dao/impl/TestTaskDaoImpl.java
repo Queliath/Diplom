@@ -16,7 +16,13 @@ public class TestTaskDaoImpl implements TestTaskDao {
 
     @Override
     public List<TestTask> getTestTasksByEmployeeId(Long employeeId) {
-        TypedQuery<TestTask> query = entityManager.createQuery("select tt from TestTask tt join fetch tt.testTaskPk.test where tt.testTaskPk.employee.id = :employeeId", TestTask.class);
+        TypedQuery<TestTask> query = entityManager.createQuery("select tt from TestTask tt join fetch tt.testTaskPk.test join fetch tt.testTaskPk.testPeriod where tt.testTaskPk.employee.id = :employeeId", TestTask.class);
         return query.setParameter("employeeId", employeeId).getResultList();
+    }
+
+    @Override
+    public void deleteTestTaskByPk(TestTask.TestTaskPk pk) {
+        TestTask testTask = entityManager.find(TestTask.class, pk);
+        entityManager.remove(testTask);
     }
 }

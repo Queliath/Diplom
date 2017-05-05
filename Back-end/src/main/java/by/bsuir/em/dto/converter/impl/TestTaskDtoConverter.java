@@ -16,6 +16,7 @@ public class TestTaskDtoConverter implements DtoConverter<TestTask, TestTaskDto>
         testTaskDto.setTestId(entity.getTestTaskPk().getTest().getId());
         testTaskDto.setTestName(entity.getTestTaskPk().getTest().getName());
         testTaskDto.setFixedTime(entity.getTestTaskPk().getTest().getFixedTime());
+        testTaskDto.setTestPeriodId(entity.getTestTaskPk().getTestPeriod().getId());
 
         return testTaskDto;
     }

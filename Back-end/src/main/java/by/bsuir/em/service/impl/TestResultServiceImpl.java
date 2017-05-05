@@ -1,9 +1,10 @@
 package by.bsuir.em.service.impl;
 
 import by.bsuir.em.dao.TestResultDao;
+import by.bsuir.em.dao.TestTaskDao;
 import by.bsuir.em.dto.TestResultDto;
 import by.bsuir.em.dto.converter.impl.TestResultDtoConverter;
-import by.bsuir.em.entity.TestResult;
+import by.bsuir.em.entity.*;
 import by.bsuir.em.service.TestResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class TestResultServiceImpl implements TestResultService {
     @Autowired
     private TestResultDao testResultDao;
     @Autowired
+    private TestTaskDao testTaskDao;
+    @Autowired
     private TestResultDtoConverter testResultDtoConverter;
 
     @Override
@@ -29,6 +32,18 @@ public class TestResultServiceImpl implements TestResultService {
 
     @Override
     public TestResultDto addTestResult(TestResultDto testResultDto) {
+        TestTask.TestTaskPk testTaskPk = new TestTask.TestTaskPk();
+        Employee employee = new Employee();
+        employee.setId(testResultDto.getEmployeeId());
+        TestPeriod testPeriod = new TestPeriod();
+        testPeriod.setId(testResultDto.getTestPeriodId());
+        Test test = new Test();
+        test.setId(testResultDto.getTestId());
+        testTaskPk.setEmployee(employee);
+        testTaskPk.setTestPeriod(testPeriod);
+        testTaskPk.setTest(test);
+        testTaskDao.deleteTestTaskByPk(testTaskPk);
+
         Double testSuccess = testResultDao.getSuccessByAnswers(testResultDto.getAnswers());
         testResultDto.setSuccess(testSuccess);
 
