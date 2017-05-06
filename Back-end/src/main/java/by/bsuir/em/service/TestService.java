@@ -7,4 +7,5 @@ import java.util.List;
 public interface TestService {
     List<TestDto> getTests();
     TestDto getTestById(Long id);
+    List<TestDto> getTestsByNameFragment(String nameFragment);
 }

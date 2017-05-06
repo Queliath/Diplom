@@ -26,4 +26,10 @@ public class TestController {
         TestDto testDto = testService.getTestById(id);
         return ResponseEntity.ok(testDto);
     }
+
+    @GetMapping(params = {"name"})
+    public ResponseEntity<List<TestDto>> getTestsByNameFragment(@RequestParam("name") String nameFragment) {
+        List<TestDto> testDtoList = testService.getTestsByNameFragment(nameFragment);
+        return ResponseEntity.ok(testDtoList);
+    }
 }
