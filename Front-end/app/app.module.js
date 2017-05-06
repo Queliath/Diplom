@@ -14,6 +14,7 @@ import testService from './common/service/test.service';
 import questionService from './common/service/question.service';
 import answerOptionService from './common/service/answerOptionService';
 import testTaskService from './common/service/testTask.service';
+import modalService from './common/service/modal.service';
 
 import {emIndexComponent} from './em-index/em-index.component';
 import {emLoginComponent} from './em-login/em-login.component';
@@ -26,6 +27,7 @@ import {emTestComponent} from './em-test/em-test.component';
 import {emPassTestComponent} from './em-pass-test/em-pass-test.component'
 import {emQuestionComponent} from './em-question/em-question.component';
 import {emTestTaskListComponent} from './em-test-task-list/em-test-task-list.component';
+import {emAddTestTaskModalComponent} from './em-add-test-task-modal/em-add-test-task-modal.component';
 
 angular.module("app", [uirouter, uibootstrap, ngCookies])
     .config(routing)
@@ -38,6 +40,7 @@ angular.module("app", [uirouter, uibootstrap, ngCookies])
     .service("questionService", questionService)
     .service("answerOptionService", answerOptionService)
     .service("testTaskService", testTaskService)
+    .service("modalService", modalService)
     .component("emIndex", emIndexComponent)
     .component("emLogin", emLoginComponent)
     .component("emProjectList", emProjectListComponent)
@@ -48,4 +51,5 @@ angular.module("app", [uirouter, uibootstrap, ngCookies])
     .component("emTest", emTestComponent)
     .component("emPassTest", emPassTestComponent)
     .component("emQuestion", emQuestionComponent)
-    .component("emTestTaskList", emTestTaskListComponent);
+    .component("emTestTaskList", emTestTaskListComponent)
+    .component("emAddTestTaskModal", emAddTestTaskModalComponent);

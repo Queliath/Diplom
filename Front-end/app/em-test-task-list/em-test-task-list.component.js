@@ -3,14 +3,24 @@ export var emTestTaskListComponent = {
     controller: emTestTaskListComponentController
 };
 
-function emTestTaskListComponentController($rootScope, testTaskService, $stateParams) {
+function emTestTaskListComponentController($rootScope, testTaskService, $stateParams, modalService) {
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
         $ctrl.root = $rootScope;
         $ctrl.employeeId = $stateParams.employeeId;
+        loadTestTasks();
+    };
+
+    $ctrl.openAddTestTaskModal = function () {
+        modalService.openAddTestTaskModal().result.then(function () {
+            loadTestTasks();
+        });
+    };
+
+    function loadTestTasks() {
         testTaskService.getTestTasksByEmployeeId($ctrl.employeeId).then(function (testTasks) {
             $ctrl.testTasks = testTasks;
         });
-    };
+    }
 }

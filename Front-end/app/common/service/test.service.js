@@ -18,4 +18,13 @@ export default function testService($http) {
             return response.data;
         });
     };
+
+    service.getTestsByNameFragment = function (nameFragment) {
+        return $http({
+            method: "GET",
+            url: EM_REST_SERVER_URI + "/tests/?name=" + nameFragment
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 }

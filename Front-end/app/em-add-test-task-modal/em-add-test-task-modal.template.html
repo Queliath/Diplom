@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="$ctrl.dismiss()">&times;</button>
+    <h4 class="modal-title">Добавить тест к прохождению</h4>
+</div>
+<div class="modal-body">
+    <form name="newsForm" role="form">
+        <div class="form-group">
+            <label for="tests">Введите название теста</label>
+            <input type="text" class="form-control" id="tests" ng-model="$ctrl.testsInput" uib-typeahead="test.name for test in $ctrl.getTestsByNameFragment($viewValue)" typeahead-on-select="$ctrl.selectTest($item, $model, $label, $event)" typeahead-wait-ms="500" autocomplete="off">
+        </div>
+        <div class="well">
+            <p>Выбранный тест: <span ng-show="$ctrl.selectedTest" class="tag">{{ $ctrl.selectedTest.name }}</span></p>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <input type="submit" value="Сохранить" class="btn btn-primary" ng-click="$ctrl.save()">
+    <button type="button" class="btn btn-default" ng-click="$ctrl.dismiss()">Отмена</button>
+</div>

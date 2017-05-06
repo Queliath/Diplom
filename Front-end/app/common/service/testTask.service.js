@@ -9,4 +9,16 @@ export default function testTaskService($http) {
             return response.data;
         });
     };
+
+    service.addTestTask = function (employeeId, testId) {
+        return $http({
+            method: "POST",
+            url: EM_REST_SERVER_URI + "/employees/" + employeeId + "/tasks",
+            data: {
+                testId: testId
+            }
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 }

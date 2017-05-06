@@ -1,4 +1,9 @@
 <h2>Тесты к прохождению</h2>
+<div class="clearfix">
+    <div class="buttons-block">
+        <button class="btn btn-primary btn-md" ng-if="$ctrl.root.sessionRole == 'Admin'" ng-click="$ctrl.openAddTestTaskModal()">Добавить тест к прохождению</button>
+    </div>
+</div>
 <div class="well clearfix" ng-repeat="testTask in $ctrl.testTasks">
     <h3>{{ testTask.testName }}</h3>
     <p>Время: {{ testTask.fixedTime }} мин.</p>
