@@ -18,11 +18,11 @@ function emPassTestComponentController(testService, questionService, answerOptio
             $ctrl.currentQuestionNumber = 1;
             loadQuestion();
         });
-        $ctrl.answers = {};
+        $ctrl.answers = [];
     };
 
     $ctrl.optionSelected = function () {
-        $ctrl.answers[$ctrl.currentQuestion.id] = $ctrl.selectedOption;
+        $ctrl.answers.push($ctrl.selectedOption);
         if ($ctrl.currentQuestionNumber == $ctrl.test.questionsCount) {
             testCompleted();
         } else {
