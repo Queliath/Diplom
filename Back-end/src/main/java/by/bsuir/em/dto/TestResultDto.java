@@ -3,7 +3,7 @@ package by.bsuir.em.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
-import java.util.Map;
+import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TestResultDto implements Serializable {
@@ -13,7 +13,7 @@ public class TestResultDto implements Serializable {
     private String testName;
     private Integer fixedTime;
     private Double success;
-    private Map<Long, Long> answers;
+    private Set<Long> answers;
 
     private Long employeeId;
     private Long testPeriodId;
@@ -50,11 +50,11 @@ public class TestResultDto implements Serializable {
         this.success = success;
     }
 
-    public Map<Long, Long> getAnswers() {
+    public Set<Long> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Map<Long, Long> answers) {
+    public void setAnswers(Set<Long> answers) {
         this.answers = answers;
     }
 

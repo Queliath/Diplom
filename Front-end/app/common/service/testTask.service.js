@@ -21,4 +21,11 @@ export default function testTaskService($http) {
             return response.data;
         });
     };
+
+    service.deleteTestTask = function (employeeId, testId) {
+        return $http({
+            method: "DELETE",
+            url: EM_REST_SERVER_URI + "/employees/" + employeeId + "/tasks/" + testId
+        });
+    };
 }

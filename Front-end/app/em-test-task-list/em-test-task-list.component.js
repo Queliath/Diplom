@@ -18,6 +18,12 @@ function emTestTaskListComponentController($rootScope, testTaskService, $statePa
         });
     };
 
+    $ctrl.openDeleteTestTaskModal = function (testId) {
+        modalService.openDeleteTestTaskModal(testId).result.then(function () {
+            loadTestTasks();
+        });
+    };
+
     function loadTestTasks() {
         testTaskService.getTestTasksByEmployeeId($ctrl.employeeId).then(function (testTasks) {
             $ctrl.testTasks = testTasks;

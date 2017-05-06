@@ -44,7 +44,7 @@ public class TestResultServiceImpl implements TestResultService {
         testTaskPk.setTest(test);
         testTaskDao.deleteTestTaskByPk(testTaskPk);
 
-        Double testSuccess = testResultDao.getSuccessByAnswers(testResultDto.getAnswers());
+        Double testSuccess = testResultDao.getSuccessByAnswers(testResultDto.getTestId(), testResultDto.getAnswers());
         testResultDto.setSuccess(testSuccess);
 
         TestResult testResult = testResultDtoConverter.getEntity(testResultDto);

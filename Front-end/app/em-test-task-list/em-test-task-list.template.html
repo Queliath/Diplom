@@ -9,5 +9,6 @@
     <p>Время: {{ testTask.fixedTime }} мин.</p>
     <div class="buttons-block">
         <a ng-if="$ctrl.root.sessionEmployeeId == $ctrl.employeeId" ui-sref="passTest({ employeeId: $ctrl.employeeId, testPeriodId: testTask.testPeriodId, testId: testTask.testId })" class="btn btn-sm btn-primary">Пройти</a>
+        <a ng-if="$ctrl.root.sessionRole == 'Admin'" ng-click="$ctrl.openDeleteTestTaskModal(testTask.testId)" class="btn btn-sm btn-default">Удалить</a>
     </div>
 </div>
