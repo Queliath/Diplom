@@ -1,4 +1,4 @@
--- Sequence: public.em_answer_options_id_seq
+﻿-- Sequence: public.em_answer_options_id_seq
 
 -- DROP SEQUENCE public.em_answer_options_id_seq;
 
@@ -216,4 +216,51 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE public.em_test_results
+  OWNER TO postgres;
+
+-- Table: public.em_users
+
+-- DROP TABLE public.em_users;
+
+CREATE TABLE public.em_users
+(
+  employee_id bigint NOT NULL,
+  email character varying(100) NOT NULL,
+  password character varying(100) NOT NULL,
+  role character varying(20) NOT NULL,
+  CONSTRAINT em_users_pk PRIMARY KEY (employee_id),
+  CONSTRAINT em_users_fk1 FOREIGN KEY (employee_id)
+      REFERENCES public.em_employees (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.em_users
+  OWNER TO postgres;
+
+-- Table: public.em_test_tasks
+
+-- DROP TABLE public.em_test_tasks;
+
+CREATE TABLE public.em_test_tasks
+(
+  employee_id bigint NOT NULL,
+  test_period_id bigint NOT NULL,
+  test_id bigint NOT NULL,
+  CONSTRAINT em_test_tasks_pk PRIMARY KEY (employee_id, test_period_id, test_id),
+  CONSTRAINT em_test_tasks_fk1 FOREIGN KEY (employee_id)
+      REFERENCES public.em_employees (id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT em_test_tasks_fk2 FOREIGN KEY (test_period_id)
+      REFERENCES public.em_test_periods (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT em_test_tasks_fk3 FOREIGN KEY (test_id)
+      REFERENCES public.em_tests (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.em_test_tasks
   OWNER TO postgres;
