@@ -27,4 +27,10 @@ public class TestTaskController {
         TestTaskDto addedTestTask = testTaskService.addTestTask(testTaskDto);
         return ResponseEntity.ok(addedTestTask);
     }
+
+    @DeleteMapping("/{testId}")
+    public ResponseEntity<Void> deleteTestTask(@PathVariable Long employeeId, @PathVariable Long testId) {
+        testTaskService.deleteTestTask(employeeId, testId);
+        return ResponseEntity.noContent().build();
+    }
 }

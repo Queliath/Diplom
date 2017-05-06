@@ -6,4 +6,15 @@ export default function modalService($uibModal) {
             component: "emAddTestTaskModal"
         });
     };
+
+    service.openDeleteTestTaskModal = function (testId) {
+        return $uibModal.open({
+            component: "emDeleteTestTaskModal",
+            resolve: {
+                testId: function () {
+                    return testId;
+                }
+            }
+        });
+    };
 }

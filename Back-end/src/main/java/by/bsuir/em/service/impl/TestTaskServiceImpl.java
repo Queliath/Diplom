@@ -4,6 +4,8 @@ import by.bsuir.em.dao.TestPeriodDao;
 import by.bsuir.em.dao.TestTaskDao;
 import by.bsuir.em.dto.TestTaskDto;
 import by.bsuir.em.dto.converter.impl.TestTaskDtoConverter;
+import by.bsuir.em.entity.Employee;
+import by.bsuir.em.entity.Test;
 import by.bsuir.em.entity.TestPeriod;
 import by.bsuir.em.entity.TestTask;
 import by.bsuir.em.service.TestTaskService;
@@ -37,5 +39,19 @@ public class TestTaskServiceImpl implements TestTaskService {
         TestTask testTask = testTaskDtoConverter.getEntity(testTaskDto);
         TestTask addedTestTask = testTaskDao.addTestTask(testTask);
         return testTaskDtoConverter.getDto(addedTestTask);
+    }
+
+    @Override
+    public void deleteTestTask(Long employeeId, Long testId) {
+        TestTask.TestTaskPk testTaskPk = new TestTask.TestTaskPk();
+        Employee employee = new Employee();
+        employee.setId(employeeId);
+        TestPeriod lastTestPeriod = testPeriodDao.getLastTestPeriod();
+        Test test = new Test();
+        test.setId(testId);
+        testTaskPk.setEmployee(employee);
+        testTaskPk.setTestPeriod(lastTestPeriod);
+        testTaskPk.setTest(test);
+        testTaskDao.deleteTestTaskByPk(testTaskPk);
     }
 }
