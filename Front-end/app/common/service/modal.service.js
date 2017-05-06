@@ -17,4 +17,15 @@ export default function modalService($uibModal) {
             }
         });
     };
+
+    service.openTestResultModal = function (testResult) {
+        return $uibModal.open({
+            component: "emTestResultModal",
+            resolve: {
+                testResult: function () {
+                    return testResult;
+                }
+            }
+        });
+    };
 }

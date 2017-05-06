@@ -3,7 +3,7 @@ export var emPassTestComponent = {
     controller: emPassTestComponentController
 };
 
-function emPassTestComponentController(testService, questionService, answerOptionService, testResultService, $stateParams, $state) {
+function emPassTestComponentController(testService, questionService, answerOptionService, testResultService, $stateParams, $state, $timeout, $interval, modalService) {
     var $ctrl = this;
 
     $ctrl.$onInit = function () {
@@ -12,6 +12,11 @@ function emPassTestComponentController(testService, questionService, answerOptio
         $ctrl.testId = $stateParams.testId;
         testService.getTestById($ctrl.testId).then(function (test) {
             $ctrl.test = test;
+            $ctrl.timeForPassingTest = new Date($ctrl.test.fixedTime * 60 * 1000);
+            $interval(function () {
+                $ctrl.timeForPassingTest.setSeconds($ctrl.timeForPassingTest.getSeconds() - 1);
+            }, 1000);
+            $timeout(testCompleted, $ctrl.test.fixedTime * 60 * 1000);
         });
         questionService.getQuestionsByTestId($ctrl.testId).then(function (questions) {
             $ctrl.questions = questions;
@@ -33,7 +38,9 @@ function emPassTestComponentController(testService, questionService, answerOptio
 
     function testCompleted() {
         testResultService.sendTestAnswers($ctrl.employeeId, $ctrl.testPeriodId, $ctrl.testId, $ctrl.answers).then(function (testResult) {
-            $state.go("tests");
+            modalService.openTestResultModal(testResult).result.then(function () {
+                $state.go("testTasks", { employeeId: $ctrl.employeeId });
+            });
         });
     }
 
