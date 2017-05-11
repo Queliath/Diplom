@@ -2,6 +2,10 @@
     <h3>{{ $ctrl.test.name }}</h3>
     <p>Кол-во вопросов: {{ $ctrl.test.questionsCount }}</p>
     <p>Время на прохождение: {{ $ctrl.test.fixedTime }} мин.</p>
+    <div class="buttons-block">
+        <a ng-click="$ctrl.openEditTestModal()" class="btn btn-md btn-primary">Изменить</a>
+        <a ng-click="$ctrl.openDeleteTestModal()" class="btn btn-md btn-default">Удалить</a>
+    </div>
 </div>
 <h2>Список вопросов</h2>
 <div class="well clearfix" ng-repeat="question in $ctrl.questions">

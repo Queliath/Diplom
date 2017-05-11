@@ -34,4 +34,26 @@ export default function modalService($uibModal) {
             component: "emAddTestModal"
         });
     };
+
+    service.openEditTestModal = function (testId) {
+        return $uibModal.open({
+            component: "emEditTestModal",
+            resolve: {
+                testId: function () {
+                    return testId;
+                }
+            }
+        });
+    };
+
+    service.openDeleteTestModal = function (testId) {
+        return $uibModal.open({
+            component: "emDeleteTestModal",
+            resolve: {
+                testId: function () {
+                    return testId;
+                }
+            }
+        });
+    };
 }

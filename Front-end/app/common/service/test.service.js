@@ -37,4 +37,21 @@ export default function testService($http) {
             return response.data;
         });
     };
+
+    service.editTest = function (test) {
+        return $http({
+            method: "PUT",
+            url: EM_REST_SERVER_URI + "/tests/" + test.id,
+            data: test
+        }).then(function (response) {
+            return response.data;
+        });
+    };
+
+    service.deleteTest = function (id) {
+        return $http({
+            method: "DELETE",
+            url: EM_REST_SERVER_URI + "/tests/" + id
+        });
+    };
 }
