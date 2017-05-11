@@ -46,6 +46,17 @@ public class TestDaoImpl implements TestDao {
         return test;
     }
 
+    @Override
+    public Test updateTest(Test test) {
+        return entityManager.merge(test);
+    }
+
+    @Override
+    public void deleteTest(Long id) {
+        Test test = entityManager.find(Test.class, id);
+        entityManager.remove(test);
+    }
+
     private void setQuestionsCountForTestList(List<Test> testList) {
         TypedQuery<Test> query = entityManager.createQuery("select new Test(t.id, count(q.id)) from Test t left join t.questions q where t.id in (:testIds) group by t.id", Test.class);
         List<Long> testIds = new ArrayList<>(testList.size());

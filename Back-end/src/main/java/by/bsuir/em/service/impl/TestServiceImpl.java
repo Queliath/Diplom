@@ -46,4 +46,16 @@ public class TestServiceImpl implements TestService {
         Test addedTest = testDao.addTest(test);
         return testDtoConverter.getDto(addedTest);
     }
+
+    @Override
+    public TestDto updateTest(TestDto testDto) {
+        Test test = testDtoConverter.getEntity(testDto);
+        Test updatedTest = testDao.updateTest(test);
+        return testDtoConverter.getDto(updatedTest);
+    }
+
+    @Override
+    public void deleteTest(Long id) {
+        testDao.deleteTest(id);
+    }
 }

@@ -9,4 +9,6 @@ public interface TestDao {
     Test getTestById(Long id);
     List<Test> getTestsByNameFragment(String nameFragment);
     Test addTest(Test test);
+    Test updateTest(Test test);
+    void deleteTest(Long id);
 }

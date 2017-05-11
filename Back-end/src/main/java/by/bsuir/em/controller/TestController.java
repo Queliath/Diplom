@@ -1,6 +1,7 @@
 package by.bsuir.em.controller;
 
 import by.bsuir.em.dto.TestDto;
+import by.bsuir.em.entity.Test;
 import by.bsuir.em.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,18 @@ public class TestController {
     public ResponseEntity<TestDto> addTest(@RequestBody TestDto testDto) {
         TestDto addedTest = testService.addTest(testDto);
         return ResponseEntity.ok(addedTest);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TestDto> updateTest(@PathVariable Long id, @RequestBody TestDto testDto) {
+        testDto.setId(id);
+        TestDto updatedTest = testService.updateTest(testDto);
+        return ResponseEntity.ok(updatedTest);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTest(@PathVariable Long id) {
+        testService.deleteTest(id);
+        return ResponseEntity.noContent().build();
     }
 }
