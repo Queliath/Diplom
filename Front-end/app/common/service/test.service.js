@@ -27,4 +27,14 @@ export default function testService($http) {
             return response.data;
         });
     };
+
+    service.addTest = function (test) {
+        return $http({
+            method: "POST",
+            url: EM_REST_SERVER_URI + "/tests",
+            data: test
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 }

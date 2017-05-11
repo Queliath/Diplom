@@ -28,4 +28,10 @@ export default function modalService($uibModal) {
             }
         });
     };
+
+    service.openAddTestModal = function () {
+        return $uibModal.open({
+            component: "emAddTestModal"
+        });
+    };
 }

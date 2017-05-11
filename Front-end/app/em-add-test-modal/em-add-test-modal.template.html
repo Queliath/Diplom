@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="$ctrl.dismiss()">&times;</button>
+    <h4 class="modal-title">Создать новый тест</h4>
+</div>
+<div class="modal-body">
+    <form name="newsForm" role="form">
+        <div class="form-group">
+            <label for="name">Название</label>
+            <input type="text" class="form-control" id="name" ng-model="$ctrl.test.name">
+        </div>
+        <div class="form-group">
+            <label for="fixedTime">Время на прохождение</label>
+            <div id="fixedTime" uib-timepicker ng-model="$ctrl.fixedTimeInput" show-meridian="false"></div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <input type="submit" value="Сохранить" class="btn btn-primary" ng-click="$ctrl.save()">
+    <button type="button" class="btn btn-default" ng-click="$ctrl.dismiss()">Отмена</button>
+</div>
