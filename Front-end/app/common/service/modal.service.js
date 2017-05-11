@@ -62,4 +62,26 @@ export default function modalService($uibModal) {
             component: "emAddQuestionModal"
         });
     };
+
+    service.openEditQuestionModal = function (questionId) {
+        return $uibModal.open({
+            component: "emEditQuestionModal",
+            resolve: {
+                questionId: function () {
+                    return questionId;
+                }
+            }
+        });
+    };
+
+    service.openDeleteQuestionModal = function (questionId) {
+        return $uibModal.open({
+            component: "emDeleteQuestionModal",
+            resolve: {
+                questionId: function () {
+                    return questionId;
+                }
+            }
+        });
+    };
 }

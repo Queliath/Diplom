@@ -28,4 +28,21 @@ export default function questionService($http) {
             return response.data;
         });
     };
+
+    service.editQuestion = function (question) {
+        return $http({
+            method: "PUT",
+            url: EM_REST_SERVER_URI + "/tests/" + question.testId + "/questions/" + question.id,
+            data: question
+        }).then(function (response) {
+            return response.data;
+        });
+    };
+
+    service.deleteQuestion = function (id) {
+        return $http({
+            method: "DELETE",
+            url: EM_REST_SERVER_URI + "/tests/0/questions/" + id
+        });
+    };
 }

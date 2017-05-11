@@ -1,5 +1,11 @@
 <div class="jumbotron">
     <p>{{ $ctrl.question.content }}</p>
+    <div class="clearfix">
+        <div class="buttons-block">
+            <a ng-click="$ctrl.openEditQuestionModal()" class="btn btn-md btn-primary">Изменить</a>
+            <a ng-click="$ctrl.openDeleteQuestionModal()" class="btn btn-md btn-default">Удалить</a>
+        </div>
+    </div>
     <p>Варианты ответа</p>
     <ul>
         <li ng-repeat="option in $ctrl.options">
