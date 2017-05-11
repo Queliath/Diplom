@@ -32,4 +32,10 @@ public class TestController {
         List<TestDto> testDtoList = testService.getTestsByNameFragment(nameFragment);
         return ResponseEntity.ok(testDtoList);
     }
+
+    @PostMapping
+    public ResponseEntity<TestDto> addTest(@RequestBody TestDto testDto) {
+        TestDto addedTest = testService.addTest(testDto);
+        return ResponseEntity.ok(addedTest);
+    }
 }

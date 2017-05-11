@@ -39,4 +39,11 @@ public class TestServiceImpl implements TestService {
         List<Test> testList = testDao.getTestsByNameFragment(nameFragment);
         return testDtoConverter.getDtoList(testList);
     }
+
+    @Override
+    public TestDto addTest(TestDto testDto) {
+        Test test = testDtoConverter.getEntity(testDto);
+        Test addedTest = testDao.addTest(test);
+        return testDtoConverter.getDto(addedTest);
+    }
 }

@@ -40,6 +40,12 @@ public class TestDaoImpl implements TestDao {
         return query.setParameter("nameFragment", "%" + nameFragment + "%").getResultList();
     }
 
+    @Override
+    public Test addTest(Test test) {
+        entityManager.persist(test);
+        return test;
+    }
+
     private void setQuestionsCountForTestList(List<Test> testList) {
         TypedQuery<Test> query = entityManager.createQuery("select new Test(t.id, count(q.id)) from Test t left join t.questions q where t.id in (:testIds) group by t.id", Test.class);
         List<Long> testIds = new ArrayList<>(testList.size());

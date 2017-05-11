@@ -8,4 +8,5 @@ public interface TestService {
     List<TestDto> getTests();
     TestDto getTestById(Long id);
     List<TestDto> getTestsByNameFragment(String nameFragment);
+    TestDto addTest(TestDto test);
 }
