@@ -16,6 +16,7 @@ public class QuestionDtoConverter implements DtoConverter<Question, QuestionDto>
         QuestionDto questionDto = new QuestionDto();
         questionDto.setId(entity.getId());
         questionDto.setContent(entity.getContent());
+        questionDto.setTestId(entity.getTest().getId());
 
         return questionDto;
     }

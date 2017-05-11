@@ -30,4 +30,15 @@ public class QuestionDaoImpl implements QuestionDao {
         entityManager.persist(question);
         return question;
     }
+
+    @Override
+    public Question updateQuestion(Question question) {
+        return entityManager.merge(question);
+    }
+
+    @Override
+    public void deleteQuestion(Long id) {
+        Question question = entityManager.find(Question.class, id);
+        entityManager.remove(question);
+    }
 }
