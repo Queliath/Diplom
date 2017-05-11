@@ -56,4 +56,10 @@ export default function modalService($uibModal) {
             }
         });
     };
+
+    service.openAddQuestionModal = function () {
+        return $uibModal.open({
+            component: "emAddQuestionModal"
+        });
+    };
 }

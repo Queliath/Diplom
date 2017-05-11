@@ -8,6 +8,11 @@
     </div>
 </div>
 <h2>Список вопросов</h2>
+<div class="clearfix">
+    <div class="buttons-block">
+        <button class="btn btn-primary btn-md" ng-click="$ctrl.openAddQuestionModal()">Добавить вопрос</button>
+    </div>
+</div>
 <div class="well clearfix" ng-repeat="question in $ctrl.questions">
     <h3><a ui-sref="question({ questionId: question.id })">Вопрос №{{ $index + 1 }}</a></h3>
     <p>{{ question.content }}</p>

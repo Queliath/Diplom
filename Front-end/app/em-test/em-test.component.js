@@ -9,9 +9,7 @@ function emTestComponentController(testService, questionService, $stateParams, $
     $ctrl.$onInit = function () {
         $ctrl.testId = $stateParams.testId;
         loadTest();
-        questionService.getQuestionsByTestId($ctrl.testId).then(function (questions) {
-            $ctrl.questions = questions;
-        });
+        loadQuestions();
     };
 
     $ctrl.openEditTestModal = function () {
@@ -26,9 +24,21 @@ function emTestComponentController(testService, questionService, $stateParams, $
         });
     };
 
+    $ctrl.openAddQuestionModal = function () {
+        modalService.openAddQuestionModal().result.then(function () {
+            loadQuestions();
+        })
+    };
+
     function loadTest() {
         testService.getTestById($ctrl.testId).then(function (test) {
             $ctrl.test = test;
+        });
+    }
+
+    function loadQuestions() {
+        questionService.getQuestionsByTestId($ctrl.testId).then(function (questions) {
+            $ctrl.questions = questions;
         });
     }
 }

@@ -18,4 +18,14 @@ export default function questionService($http) {
             return response.data;
         });
     };
+
+    service.addQuestion = function (question) {
+        return $http({
+            method: "POST",
+            url: EM_REST_SERVER_URI + "/tests/" + question.testId + "/questions",
+            data: question
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 }

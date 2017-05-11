@@ -33,6 +33,7 @@ import {emTestResultModalComponent} from './em-pass-test/em-test-result-modal/em
 import {emAddTestModalComponent} from './em-test-list/em-add-test-modal/em-add-test-modal.component';
 import {emEditTestModalComponent} from './em-test/em-edit-test-modal/em-edit-test-modal.component';
 import {emDeleteTestModalComponent} from './em-test/em-delete-test-modal/em-delete-test-modal.component';
+import {emAddQuestionModalComponent} from './em-test/em-add-question-modal/em-add-question-modal.component';
 
 angular.module("app", [uirouter, uibootstrap, ngCookies])
     .config(routing)
@@ -62,4 +63,5 @@ angular.module("app", [uirouter, uibootstrap, ngCookies])
     .component("emTestResultModal", emTestResultModalComponent)
     .component("emAddTestModal", emAddTestModalComponent)
     .component("emEditTestModal", emEditTestModalComponent)
-    .component("emDeleteTestModal", emDeleteTestModalComponent);
+    .component("emDeleteTestModal", emDeleteTestModalComponent)
+    .component("emAddQuestionModal", emAddQuestionModalComponent);
