@@ -26,4 +26,11 @@ public class QuestionController {
         QuestionDto questionDto = questionService.getQuestionById(id);
         return ResponseEntity.ok(questionDto);
     }
+
+    @PostMapping
+    public ResponseEntity<QuestionDto> addQuestion(@PathVariable Long testId, @RequestBody QuestionDto questionDto) {
+        questionDto.setTestId(testId);
+        QuestionDto addedQuestion = questionService.addQuestion(questionDto);
+        return ResponseEntity.ok(addedQuestion);
+    }
 }

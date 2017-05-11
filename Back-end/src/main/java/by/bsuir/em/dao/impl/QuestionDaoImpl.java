@@ -24,4 +24,10 @@ public class QuestionDaoImpl implements QuestionDao {
     public Question getQuestionById(Long id) {
         return entityManager.find(Question.class, id);
     }
+
+    @Override
+    public Question addQuestion(Question question) {
+        entityManager.persist(question);
+        return question;
+    }
 }

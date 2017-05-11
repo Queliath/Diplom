@@ -7,4 +7,5 @@ import java.util.List;
 public interface QuestionService {
     List<QuestionDto> getQuestionsByTestId(Long testId);
     QuestionDto getQuestionById(Long id);
+    QuestionDto addQuestion(QuestionDto questionDto);
 }

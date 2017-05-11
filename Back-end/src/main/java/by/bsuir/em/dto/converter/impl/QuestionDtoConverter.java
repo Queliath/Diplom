@@ -3,6 +3,7 @@ package by.bsuir.em.dto.converter.impl;
 import by.bsuir.em.dto.QuestionDto;
 import by.bsuir.em.dto.converter.DtoConverter;
 import by.bsuir.em.entity.Question;
+import by.bsuir.em.entity.Test;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -24,6 +25,9 @@ public class QuestionDtoConverter implements DtoConverter<Question, QuestionDto>
         Question question = new Question();
         question.setId(dto.getId());
         question.setContent(dto.getContent());
+        Test test = new Test();
+        test.setId(dto.getTestId());
+        question.setTest(test);
 
         return question;
     }

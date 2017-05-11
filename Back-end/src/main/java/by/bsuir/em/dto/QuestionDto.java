@@ -7,6 +7,7 @@ public class QuestionDto extends Dto<Long> {
     private static final long serialVersionUID = -1093073555735822044L;
 
     private String content;
+    private Long testId;
 
     public String getContent() {
         return content;
@@ -14,6 +15,14 @@ public class QuestionDto extends Dto<Long> {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Long getTestId() {
+        return testId;
+    }
+
+    public void setTestId(Long testId) {
+        this.testId = testId;
     }
 
     @Override

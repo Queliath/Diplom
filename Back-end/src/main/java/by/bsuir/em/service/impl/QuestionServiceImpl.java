@@ -33,4 +33,11 @@ public class QuestionServiceImpl implements QuestionService {
         Question question = questionDao.getQuestionById(id);
         return questionDtoConverter.getDto(question);
     }
+
+    @Override
+    public QuestionDto addQuestion(QuestionDto questionDto) {
+        Question question = questionDtoConverter.getEntity(questionDto);
+        Question addedQuestion = questionDao.addQuestion(question);
+        return questionDtoConverter.getDto(addedQuestion);
+    }
 }
