@@ -7,9 +7,14 @@
         </div>
     </div>
     <p>Варианты ответа</p>
+    <div class="clearfix">
+        <div class="buttons-block">
+            <button class="btn btn-primary btn-md" ng-click="$ctrl.openAddAnswerOptionModal()">Добавить вариант ответа</button>
+        </div>
+    </div>
     <ul>
         <li ng-repeat="option in $ctrl.options">
-            {{ option.content }} ({{ option.value }})
+            {{ option.content }} ({{ option.value }}) <a ng-click="$ctrl.openEditAnswerOptionModal(option.id)">Изменить</a> <a ng-click="$ctrl.openDeleteAnswerOptionModal(option.id)">Удалить</a>
         </li>
     </ul>
 </div>

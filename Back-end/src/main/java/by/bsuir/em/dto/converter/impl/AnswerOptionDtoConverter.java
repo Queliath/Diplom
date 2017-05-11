@@ -3,6 +3,7 @@ package by.bsuir.em.dto.converter.impl;
 import by.bsuir.em.dto.AnswerOptionDto;
 import by.bsuir.em.dto.converter.DtoConverter;
 import by.bsuir.em.entity.AnswerOption;
+import by.bsuir.em.entity.Question;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -26,6 +27,9 @@ public class AnswerOptionDtoConverter implements DtoConverter<AnswerOption, Answ
         answerOption.setId(dto.getId());
         answerOption.setContent(dto.getContent());
         answerOption.setValue(dto.getValue());
+        Question question = new Question();
+        question.setId(dto.getQuestionId());
+        answerOption.setQuestion(question);
 
         return answerOption;
     }

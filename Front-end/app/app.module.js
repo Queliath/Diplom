@@ -36,6 +36,9 @@ import {emDeleteTestModalComponent} from './em-test/em-delete-test-modal/em-dele
 import {emAddQuestionModalComponent} from './em-test/em-add-question-modal/em-add-question-modal.component';
 import {emEditQuestionModalComponent} from './em-question/em-edit-question-modal/em-edit-question-modal.component';
 import {emDeleteQuestionModalComponent} from './em-question/em-delete-question-modal/em-delete-question-modal.component';
+import {emAddAnswerOptionModalComponent} from './em-question/em-add-answer-option-modal/em-add-answer-option-modal.component';
+import {emEditAnswerOptionModalComponent} from './em-question/em-edit-answer-option-modal/em-edit-answer-option-modal.component';
+import {emDeleteAnswerOptionModalComponent} from './em-question/em-delete-answer-option-modal/em-delete-answer-option-modal.component';
 
 angular.module("app", [uirouter, uibootstrap, ngCookies])
     .config(routing)
@@ -68,4 +71,7 @@ angular.module("app", [uirouter, uibootstrap, ngCookies])
     .component("emDeleteTestModal", emDeleteTestModalComponent)
     .component("emAddQuestionModal", emAddQuestionModalComponent)
     .component("emEditQuestionModal", emEditQuestionModalComponent)
-    .component("emDeleteQuestionModal", emDeleteQuestionModalComponent);
+    .component("emDeleteQuestionModal", emDeleteQuestionModalComponent)
+    .component("emAddAnswerOptionModal", emAddAnswerOptionModalComponent)
+    .component("emEditAnswerOptionModal", emEditAnswerOptionModalComponent)
+    .component("emDeleteAnswerOptionModal", emDeleteAnswerOptionModalComponent);

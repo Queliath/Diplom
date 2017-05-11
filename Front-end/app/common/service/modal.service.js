@@ -84,4 +84,32 @@ export default function modalService($uibModal) {
             }
         });
     };
+
+    service.openAddAnswerOptionModal = function () {
+        return $uibModal.open({
+            component: "emAddAnswerOptionModal"
+        });
+    };
+
+    service.openEditAnswerOptionModal = function (answerOptionId) {
+        return $uibModal.open({
+            component: "emEditAnswerOptionModal",
+            resolve: {
+                answerOptionId: function () {
+                    return answerOptionId;
+                }
+            }
+        });
+    };
+
+    service.openDeleteAnswerOptionModal = function (answerOptionId) {
+        return $uibModal.open({
+            component: "emDeleteAnswerOptionModal",
+            resolve: {
+                answerOptionId: function () {
+                    return answerOptionId;
+                }
+            }
+        });
+    };
 }

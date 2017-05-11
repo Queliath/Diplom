@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="$ctrl.dismiss()">&times;</button>
+    <h4 class="modal-title">Добавить новый вариант ответа</h4>
+</div>
+<div class="modal-body">
+    <form name="newsForm" role="form">
+        <div class="form-group">
+            <label for="content">Содержание</label>
+            <textarea class="form-control" id="content" ng-model="$ctrl.answerOption.content"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="value">Значение</label>
+            <input type="number" class="form-control" id="value" ng-model="$ctrl.answerOption.value">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <input type="submit" value="Сохранить" class="btn btn-primary" ng-click="$ctrl.save()">
+    <button type="button" class="btn btn-default" ng-click="$ctrl.dismiss()">Отмена</button>
+</div>

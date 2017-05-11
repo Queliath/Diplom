@@ -25,4 +25,29 @@ public class AnswerOptionServiceImpl implements AnswerOptionService {
         List<AnswerOption> answerOptionList = answerOptionDao.getAnswerOptionsByQuestionId(questionId);
         return answerOptionDtoConverter.getDtoList(answerOptionList);
     }
+
+    @Override
+    public AnswerOptionDto getAnswerOptionById(Long id) {
+        AnswerOption answerOption = answerOptionDao.getAnswerOptionById(id);
+        return answerOptionDtoConverter.getDto(answerOption);
+    }
+
+    @Override
+    public AnswerOptionDto addAnswerOption(AnswerOptionDto answerOptionDto) {
+        AnswerOption answerOption = answerOptionDtoConverter.getEntity(answerOptionDto);
+        AnswerOption addedAnswerOption = answerOptionDao.addAnswerOption(answerOption);
+        return answerOptionDtoConverter.getDto(addedAnswerOption);
+    }
+
+    @Override
+    public AnswerOptionDto updateAnswerOption(AnswerOptionDto answerOptionDto) {
+        AnswerOption answerOption = answerOptionDtoConverter.getEntity(answerOptionDto);
+        AnswerOption updatedAnswerOption = answerOptionDao.updateAnswerOption(answerOption);
+        return answerOptionDtoConverter.getDto(updatedAnswerOption);
+    }
+
+    @Override
+    public void deleteAnswerOption(Long id) {
+        answerOptionDao.deleteAnswerOption(id);
+    }
 }

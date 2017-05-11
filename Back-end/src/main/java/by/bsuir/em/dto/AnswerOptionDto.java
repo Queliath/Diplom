@@ -8,6 +8,7 @@ public class AnswerOptionDto extends Dto<Long> {
 
     private String content;
     private Integer value;
+    private Long questionId;
 
     public String getContent() {
         return content;
@@ -23,6 +24,14 @@ public class AnswerOptionDto extends Dto<Long> {
 
     public void setValue(Integer value) {
         this.value = value;
+    }
+
+    public Long getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
     }
 
     @Override

@@ -24,6 +24,24 @@ function emQuestionComponentController(questionService, answerOptionService, $st
         })
     };
 
+    $ctrl.openAddAnswerOptionModal = function () {
+        modalService.openAddAnswerOptionModal().result.then(function () {
+            loadAnswerOptions();
+        });
+    };
+
+    $ctrl.openEditAnswerOptionModal = function (answerOptionId) {
+        modalService.openEditAnswerOptionModal(answerOptionId).result.then(function () {
+            loadAnswerOptions();
+        });
+    };
+
+    $ctrl.openDeleteAnswerOptionModal = function (answerOptionId) {
+        modalService.openDeleteAnswerOptionModal(answerOptionId).result.then(function () {
+            loadAnswerOptions();
+        });
+    };
+
     function loadQuestion() {
         questionService.getQuestionById($ctrl.questionId).then(function (question) {
             $ctrl.question = question;

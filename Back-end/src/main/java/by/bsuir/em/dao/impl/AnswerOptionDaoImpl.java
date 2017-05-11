@@ -19,4 +19,26 @@ public class AnswerOptionDaoImpl implements AnswerOptionDao {
         TypedQuery<AnswerOption> query = entityManager.createQuery("select ao from AnswerOption ao where ao.question.id = :questionId", AnswerOption.class);
         return query.setParameter("questionId", questionId).getResultList();
     }
+
+    @Override
+    public AnswerOption getAnswerOptionById(Long id) {
+        return entityManager.find(AnswerOption.class, id);
+    }
+
+    @Override
+    public AnswerOption addAnswerOption(AnswerOption answerOption) {
+        entityManager.persist(answerOption);
+        return answerOption;
+    }
+
+    @Override
+    public AnswerOption updateAnswerOption(AnswerOption answerOption) {
+        return entityManager.merge(answerOption);
+    }
+
+    @Override
+    public void deleteAnswerOption(Long id) {
+        AnswerOption answerOption = entityManager.find(AnswerOption.class, id);
+        entityManager.remove(answerOption);
+    }
 }

@@ -20,4 +20,31 @@ public class AnswerOptionController {
         List<AnswerOptionDto> answerOptionDtoList = answerOptionService.getAnswerOptionsByQuestionId(questionId);
         return ResponseEntity.ok(answerOptionDtoList);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AnswerOptionDto> getAnswerOptionById(@PathVariable Long id) {
+        AnswerOptionDto answerOptionDto = answerOptionService.getAnswerOptionById(id);
+        return ResponseEntity.ok(answerOptionDto);
+    }
+
+    @PostMapping
+    public ResponseEntity<AnswerOptionDto> addAnswerOption(@PathVariable Long questionId, @RequestBody AnswerOptionDto answerOptionDto) {
+        answerOptionDto.setQuestionId(questionId);
+        AnswerOptionDto addedAnswerOption = answerOptionService.addAnswerOption(answerOptionDto);
+        return ResponseEntity.ok(addedAnswerOption);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<AnswerOptionDto> updateAnswerOption(@PathVariable Long questionId, @PathVariable Long id, @RequestBody AnswerOptionDto answerOptionDto) {
+        answerOptionDto.setQuestionId(questionId);
+        answerOptionDto.setId(id);
+        AnswerOptionDto updatedAnswerOption = answerOptionService.updateAnswerOption(answerOptionDto);
+        return ResponseEntity.ok(updatedAnswerOption);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAnswerOption(@PathVariable Long id) {
+        answerOptionService.deleteAnswerOption(id);
+        return ResponseEntity.noContent().build();
+    }
 }
